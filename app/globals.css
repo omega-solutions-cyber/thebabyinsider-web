@@ -14,26 +14,30 @@
   /* Base */
   --color-ink: #111827;
   --color-ink-muted: #5b6472;
-  --color-ink-faint: #8b93a1;
+  --color-ink-faint: #656d7a;
   --color-paper: #fffdf9;
   --color-surface: #f5f3ef;
   --color-rule: #e5e1da;
   --color-footer: #0b0f14;
 
   /* Accent — echoes the reference's newsletter band */
-  --color-accent: #0e7c86;
-  --color-accent-dark: #0a5c64;
+  --color-accent: #0a6a73;
+  --color-accent-dark: #075158;
   --color-accent-tint: #e6f2f3;
+  /* Legible teal for use ON the dark footer — the base accent is far too
+     dark against #0B0F14 (3.0:1). */
+  --color-accent-on-dark: #4fbcc7;
 
   /* Call-to-action (subscribe button) */
   --color-cta: #e0234e;
   --color-cta-dark: #bd1740;
 
-  /* Category accents — eyebrow labels only. All ≥4.5:1 on paper. */
+  /* Category accents — eyebrow labels only. Every value is verified
+     ≥4.5:1 against BOTH paper and surface, since eyebrows sit on both. */
   --color-cat-pregnancy: #b0347c;
-  --color-cat-newborn: #0e7c86;
+  --color-cat-newborn: #0a6a73;
   --color-cat-sleep: #4c3f91;
-  --color-cat-feeding: #b4622a;
+  --color-cat-feeding: #9c5323;
   --color-cat-milestones: #1f6f43;
   --color-cat-health: #a62b36;
   --color-cat-gear: #2b5f9e;
@@ -109,6 +113,24 @@
     height: 1px;
     background-color: var(--color-rule);
   }
+}
+
+/* rehype-autolink-headings wraps each heading's text in an anchor so the heading
+   itself is a permalink. Without this it inherits prose link styling and every
+   H2 renders as a blue underlined link.
+
+   Deliberately unlayered: `@tailwindcss/typography` targets links at the same
+   specificity, so a rule inside @layer base loses on source order. Unlayered
+   CSS outranks every layer. */
+.prose .heading-anchor,
+.prose .heading-anchor:visited {
+  color: inherit;
+  text-decoration: none;
+  font-weight: inherit;
+}
+
+.prose .heading-anchor:hover {
+  color: var(--color-accent);
 }
 
 /* Article prose. Wider measure than Tailwind's default, serif subheads. */

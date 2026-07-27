@@ -115,6 +115,30 @@ Current index: ~20 KB raw, ~8 KB gzipped at 10 articles. **If the gzipped index 
 (roughly 2,000 articles), switch to Pagefind or Algolia** — MiniSearch loads the whole index into
 memory client-side.
 
+## Homepage content threshold
+
+A homepage category section is a three-up row, so a category earns one only once
+it has **3+ articles** (`SECTION_MIN` in `app/page.tsx`). Below that it would
+render a single card marooned in a three-column grid, which reads as broken.
+
+Until at least two categories qualify, a cross-category **LATEST** grid carries
+the page instead. To match the reference layout's per-category sections you need
+roughly **3 articles x 8 categories = 24**. There are currently 10.
+
+## Verified
+
+Measured with headless Chrome against a production build (`scripts/` in the
+session scratchpad, not committed):
+
+- **CLS 0** on home, article, category and author pages, at 1440x900 and 390x844
+- No horizontal overflow at any breakpoint
+- **Zero axe violations** (wcag2a/2aa/21a/21aa) on all five page types
+- Disclosure audit passes, and fails correctly when a disclosure is removed
+
+Palette contrast is verified against both `paper` and `surface` backgrounds;
+`--color-accent-on-dark` exists because the base accent is only 3.0:1 on the
+footer.
+
 ## Before launch
 
 - [ ] **Replace every placeholder image.** All hero images are generated gradients from

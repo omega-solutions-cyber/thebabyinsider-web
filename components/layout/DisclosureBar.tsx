@@ -18,7 +18,8 @@ export function DisclosureBar() {
 
   return (
     <div className="border-rule bg-paper border-b">
-      <Container>
+      {/* Same width as the header so the disclosure lines up with the logo. */}
+      <Container width="wide">
         <p className="text-ink-muted py-2.5 text-[0.75rem] leading-tight">
           {text}{' '}
           <Link href={href} className="hover:text-accent underline underline-offset-2">

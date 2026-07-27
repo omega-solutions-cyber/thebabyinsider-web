@@ -36,7 +36,7 @@ function LinkColumn({
 }) {
   return (
     <div>
-      <h2 className="text-accent font-sans text-[0.7rem] font-bold tracking-[0.1em] uppercase">
+      <h2 className="text-accent-on-dark font-sans text-[0.7rem] font-bold tracking-[0.1em] uppercase">
         {heading}
       </h2>
       <ul className="mt-4 space-y-2.5">
@@ -65,7 +65,7 @@ export function SiteFooter() {
         <div className="grid gap-10 py-14 md:grid-cols-2 lg:grid-cols-4">
           <div>
             <Logo tone="paper" />
-            <p className="text-paper/60 mt-5 max-w-[22rem] text-[0.8rem] leading-relaxed">
+            <p className="text-paper/70 mt-5 max-w-[22rem] text-[0.8rem] leading-relaxed">
               {siteConfig.tagline}. Every clinical article is reviewed by a licensed practitioner
               before publication.
             </p>
@@ -105,10 +105,10 @@ export function SiteFooter() {
 
         {/* Ownership stated in plain language, on every page. */}
         <div className="border-paper/12 border-t py-7">
-          <p className="text-paper/55 max-w-[52rem] text-[0.75rem] leading-relaxed">
+          <p className="text-paper/70 max-w-[52rem] text-[0.75rem] leading-relaxed">
             {siteConfig.ownership.statement}
           </p>
-          <p className="text-paper/45 mt-4 text-[0.75rem]">
+          <p className="text-paper/70 mt-4 text-[0.75rem]">
             © {siteConfig.founded}–{new Date().getFullYear()} {siteConfig.name}. Information on this
             site is for general education and is not a substitute for advice from your own
             healthcare provider.
