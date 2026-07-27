@@ -71,10 +71,7 @@ export function RelatedArticles({ articles }: { articles: Article[] }) {
 
   return (
     <section className="mt-14" aria-labelledby="related-heading">
-      <h2
-        id="related-heading"
-        className="rule-heading text-ink font-sans text-lg font-extrabold tracking-[0.02em] uppercase"
-      >
+      <h2 id="related-heading" className="text-ink font-serif text-xl font-semibold">
         <span>Related reading</span>
       </h2>
       <div className="mt-6 grid gap-x-6 gap-y-8 sm:grid-cols-3">
@@ -98,7 +95,7 @@ export function TableOfContents({
   return (
     <nav
       aria-labelledby="toc-heading"
-      className={cn('border-rule bg-surface border p-5', className)}
+      className={cn('border-rule bg-surface rounded-card border p-5', className)}
     >
       <h2
         id="toc-heading"

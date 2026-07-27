@@ -44,7 +44,7 @@ export default function MedicalReviewTeamPage() {
 
       <Container className="mt-5">
         <header className="border-rule border-b pb-7">
-          <h1 className="text-ink font-sans text-[1.75rem] font-extrabold uppercase sm:text-[2.1rem]">
+          <h1 className="text-ink font-serif text-[1.95rem] font-semibold sm:text-[2.3rem]">
             Medical Review Team
           </h1>
           <p className="text-ink-muted mt-4 text-[0.98rem] leading-relaxed">
@@ -79,7 +79,7 @@ export default function MedicalReviewTeamPage() {
                   />
                 )}
                 <div>
-                  <h2 className="text-ink font-sans text-xl font-bold">
+                  <h2 className="text-ink font-serif text-xl font-semibold">
                     <Link href={r.permalink} className="hover:text-accent">
                       {r.name}
                       {r.credentials && <span className="text-ink-muted">, {r.credentials}</span>}

@@ -46,7 +46,7 @@ export default function AuthorsPage() {
       <Breadcrumbs trail={[{ name: 'Home', url: '/' }, { name: 'Our team' }]} />
 
       <header className="border-rule mt-5 border-b pb-7">
-        <h1 className="text-ink font-sans text-[1.9rem] font-extrabold uppercase sm:text-[2.3rem]">
+        <h1 className="text-ink font-serif text-[2.1rem] font-semibold sm:text-[2.5rem]">
           Our team
         </h1>
         <p className="text-ink-muted mt-3 max-w-[46rem] text-[0.95rem] leading-relaxed">

@@ -67,7 +67,7 @@ export function MedicalReviewBadge({
   reviewedAt?: string
 }) {
   return (
-    <aside className="border-cat-milestones/30 bg-cat-milestones/5 my-6 flex gap-3 border p-4">
+    <aside className="border-cat-milestones/30 bg-cat-milestones/5 rounded-card my-6 flex gap-3 border p-4">
       <svg
         width="18"
         height="18"

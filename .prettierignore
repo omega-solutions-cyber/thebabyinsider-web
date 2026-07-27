@@ -1,0 +1,9 @@
+# Prose is authored, not formatted. Prettier reflows markdown inside JSX blocks,
+# which silently merges bullet lists into a single paragraph.
+content/**/*.mdx
+
+.next/
+.velite/
+public/static/
+public/search-index.json
+pnpm-lock.yaml

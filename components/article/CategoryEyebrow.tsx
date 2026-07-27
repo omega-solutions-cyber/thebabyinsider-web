@@ -3,8 +3,12 @@ import { getCategory } from '@/lib/content'
 import { cn } from '@/lib/cn'
 
 /**
- * The small uppercase category label above every headline. Colour comes from
- * the category definition, so adding a category needs no code change.
+ * The category label above every headline.
+ *
+ * Rendered as a filled pill rather than the plain coloured uppercase text this
+ * genre defaults to. Colour comes from the category definition, so adding a
+ * category needs no code change — and every category colour is verified to
+ * clear 4.5:1 against white, since the label sits on the fill.
  */
 export function CategoryEyebrow({
   slug,
@@ -22,14 +26,15 @@ export function CategoryEyebrow({
   if (!category) return null
 
   const classes = cn(
-    'inline-block font-sans text-[0.65rem] font-bold tracking-[0.1em] uppercase',
+    'rounded-pill inline-block px-2.5 py-[0.2rem] font-sans text-[0.6rem] font-bold tracking-[0.09em] uppercase',
+    tone === 'paper' ? 'bg-white/18 text-white backdrop-blur-[2px]' : 'text-white',
     className
   )
-  const style = tone === 'color' ? { color: category.color } : undefined
+  const style = tone === 'color' ? { backgroundColor: category.color } : undefined
 
   if (!asLink) {
     return (
-      <span className={cn(classes, tone === 'paper' && 'text-amber-300')} style={style}>
+      <span className={classes} style={style}>
         {category.name}
       </span>
     )
@@ -38,7 +43,7 @@ export function CategoryEyebrow({
   return (
     <Link
       href={`/${category.slug}`}
-      className={cn(classes, tone === 'paper' ? 'text-amber-300' : 'hover:underline')}
+      className={cn(classes, 'transition-opacity hover:opacity-85')}
       style={style}
     >
       {category.name}
@@ -50,7 +55,7 @@ export function NewBadge({ className }: { className?: string }) {
   return (
     <span
       className={cn(
-        'bg-accent inline-grid h-14 w-24 place-items-center font-sans text-lg font-black tracking-[0.08em] text-white uppercase sm:h-16 sm:w-28 sm:text-xl',
+        'rounded-pill bg-cta inline-block px-3.5 py-1.5 font-sans text-[0.68rem] font-bold tracking-[0.12em] text-white uppercase',
         className
       )}
     >

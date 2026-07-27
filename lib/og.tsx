@@ -18,8 +18,8 @@ async function loadFonts() {
 
   const dir = join(process.cwd(), 'public', 'fonts')
   const [bold, semibold] = await Promise.all([
-    readFile(join(dir, 'InterTight-Bold.ttf')),
-    readFile(join(dir, 'InterTight-SemiBold.ttf')),
+    readFile(join(dir, 'Fraunces-Bold.ttf')),
+    readFile(join(dir, 'Fraunces-SemiBold.ttf')),
   ])
 
   fontCache = {
@@ -35,7 +35,7 @@ async function loadFonts() {
 export async function renderOgImage({
   title,
   eyebrow,
-  accent = '#0E7C86',
+  accent = '#7B2D4E',
   footnote,
 }: {
   title: string
@@ -53,7 +53,7 @@ export async function renderOgImage({
         justifyContent: 'space-between',
         width: '100%',
         height: '100%',
-        backgroundColor: '#FFFDF9',
+        backgroundColor: '#FFFFFF',
         padding: '64px 72px',
         borderTop: `16px solid ${accent}`,
       }}
@@ -80,7 +80,7 @@ export async function renderOgImage({
             fontSize: title.length > 70 ? 60 : 72,
             fontWeight: 700,
             lineHeight: 1.1,
-            color: '#111827',
+            color: '#1B1A2E',
             letterSpacing: -1,
           }}
         >
@@ -113,7 +113,7 @@ export async function renderOgImage({
               fontWeight: 700,
               letterSpacing: 3,
               textTransform: 'uppercase',
-              color: '#111827',
+              color: '#1B1A2E',
             }}
           >
             {siteConfig.name}
@@ -121,15 +121,15 @@ export async function renderOgImage({
         </div>
 
         {footnote && (
-          <div style={{ display: 'flex', fontSize: 22, color: '#5B6472' }}>{footnote}</div>
+          <div style={{ display: 'flex', fontSize: 22, color: '#56536E' }}>{footnote}</div>
         )}
       </div>
     </div>,
     {
       ...OG_SIZE,
       fonts: [
-        { name: 'InterTight', data: fonts.bold, weight: 700, style: 'normal' },
-        { name: 'InterTight', data: fonts.semibold, weight: 600, style: 'normal' },
+        { name: 'Fraunces', data: fonts.bold, weight: 700, style: 'normal' },
+        { name: 'Fraunces', data: fonts.semibold, weight: 600, style: 'normal' },
       ],
     }
   )

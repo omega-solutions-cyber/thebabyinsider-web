@@ -27,7 +27,7 @@ export function Callout({
 }) {
   const style = calloutStyles[type] ?? calloutStyles.info
   return (
-    <aside className={cn('my-7 border-l-[3px] p-4 sm:p-5', style.border, style.bg)}>
+    <aside className={cn('rounded-card my-7 border-l-[3px] p-4 sm:p-5', style.border, style.bg)}>
       <p className="text-ink-muted font-sans text-[0.68rem] font-bold tracking-[0.1em] uppercase">
         {title ?? style.label}
       </p>
@@ -49,7 +49,7 @@ export function KeyTakeaways({
   title?: string
 }) {
   return (
-    <aside className="border-rule bg-surface my-8 border p-5 sm:p-6">
+    <aside className="border-rule bg-surface rounded-card my-8 border p-5 sm:p-6">
       <h2 className="text-accent font-sans text-[0.72rem] font-bold tracking-[0.12em] uppercase">
         {title}
       </h2>
@@ -78,10 +78,7 @@ export function FAQ({
 
   return (
     <section className="my-10" aria-labelledby="faq-heading">
-      <h2
-        id="faq-heading"
-        className="text-ink font-sans text-lg font-extrabold tracking-[0.02em] uppercase"
-      >
+      <h2 id="faq-heading" className="text-ink font-serif text-xl font-semibold">
         {title}
       </h2>
       <div className="border-rule mt-4 border-t">
@@ -125,9 +122,9 @@ function Stars({ rating }: { rating: number }) {
 
 export function ProductCard({ product }: { product: Product }) {
   return (
-    <article className="border-rule bg-paper border p-5">
+    <article className="border-rule bg-paper rounded-card border p-5">
       <div className="flex flex-wrap items-baseline justify-between gap-2">
-        <h3 className="text-ink font-sans text-lg font-bold">
+        <h3 className="text-ink font-serif text-lg font-semibold">
           {product.rank != null && <span className="text-ink-faint mr-2">#{product.rank}</span>}
           {product.name}
         </h3>
@@ -202,7 +199,7 @@ export function ProductCard({ product }: { product: Product }) {
             href={product.url}
             target="_blank"
             rel="sponsored nofollow noopener noreferrer"
-            className="bg-ink text-paper hover:bg-accent inline-block px-6 py-2.5 text-[0.82rem] font-bold transition-colors"
+            className="bg-ink text-paper hover:bg-accent rounded-pill inline-block px-6 py-2.5 text-[0.82rem] font-bold transition-colors"
           >
             Visit {product.name}
           </a>
@@ -257,11 +254,11 @@ export function BabyLeapPromo({ headline, body }: { headline?: string; body?: st
 
   return (
     <aside className="my-10">
-      <div className="border-rule bg-surface border p-6">
+      <div className="border-rule bg-surface rounded-card border p-6">
         <p className="text-ink-muted font-sans text-[0.68rem] font-bold tracking-[0.1em] uppercase">
           From our team
         </p>
-        <h2 className="text-ink mt-2 font-sans text-xl font-bold">
+        <h2 className="text-ink mt-2 font-serif text-xl font-semibold">
           {headline ?? `Track your baby's development with ${productName}`}
         </h2>
         <p className="text-ink-muted mt-2.5 text-[0.9rem] leading-relaxed">
@@ -273,7 +270,7 @@ export function BabyLeapPromo({ headline, body }: { headline?: string; body?: st
             href={productUrl}
             target="_blank"
             rel="sponsored nofollow noopener noreferrer"
-            className="bg-accent hover:bg-accent-dark inline-block px-6 py-2.5 text-[0.82rem] font-bold text-white transition-colors"
+            className="bg-accent hover:bg-accent-dark rounded-pill inline-block px-6 py-2.5 text-[0.82rem] font-bold text-white transition-colors"
           >
             Try {productName} free for 7 days
           </a>

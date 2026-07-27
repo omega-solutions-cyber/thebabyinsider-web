@@ -41,7 +41,7 @@ export function ArticleCard({
         tabIndex={-1}
         aria-hidden="true"
         className={cn(
-          'bg-surface relative block overflow-hidden',
+          'bg-surface rounded-card relative block overflow-hidden',
           horizontal ? 'aspect-[4/3] w-[7.5rem] shrink-0' : 'aspect-[4/3] w-full'
         )}
       >
@@ -69,7 +69,7 @@ export function ArticleCard({
 
         <h3
           className={cn(
-            'text-ink mt-2 font-sans leading-snug font-bold',
+            'text-ink mt-2 font-serif leading-snug font-semibold',
             variant === 'large' ? 'text-xl sm:text-2xl' : 'text-[0.95rem]'
           )}
         >

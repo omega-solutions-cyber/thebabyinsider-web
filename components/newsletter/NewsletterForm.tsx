@@ -79,7 +79,7 @@ export function NewsletterForm({
           autoComplete="email"
           placeholder="Enter your email"
           disabled={status === 'pending'}
-          className="text-ink placeholder:text-ink-faint h-11 w-full bg-white px-4 text-sm outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white disabled:opacity-70"
+          className="text-ink placeholder:text-ink-faint rounded-card h-11 w-full bg-white px-4 text-sm outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white disabled:opacity-70"
         />
 
         {/* Honeypot — visually and semantically hidden from real users. */}
@@ -97,7 +97,7 @@ export function NewsletterForm({
         <button
           type="submit"
           disabled={status === 'pending'}
-          className="bg-cta hover:bg-cta-dark h-11 shrink-0 px-7 text-sm font-bold text-white transition-colors disabled:opacity-70"
+          className="bg-cta hover:bg-cta-dark rounded-card h-11 shrink-0 px-7 text-sm font-bold text-white transition-colors disabled:opacity-70"
         >
           {status === 'pending' ? 'Subscribing…' : 'Subscribe'}
         </button>

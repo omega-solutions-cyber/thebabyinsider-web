@@ -72,7 +72,7 @@ export default async function AuthorPage({ params }: { params: Params }) {
             <p className="text-accent font-sans text-[0.68rem] font-bold tracking-[0.12em] uppercase">
               {author.role === 'medical-reviewer' ? 'Medical review team' : 'Editorial team'}
             </p>
-            <h1 className="text-ink mt-1.5 font-sans text-[1.75rem] font-extrabold sm:text-[2.1rem]">
+            <h1 className="text-ink mt-1.5 font-serif text-[1.95rem] font-semibold sm:text-[2.3rem]">
               {author.name}
               {author.credentials && <span className="text-ink-muted">, {author.credentials}</span>}
             </h1>

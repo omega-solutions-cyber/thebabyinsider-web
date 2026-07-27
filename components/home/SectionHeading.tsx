@@ -16,7 +16,7 @@ export function SectionHeading({
   className?: string
 }) {
   const heading = (
-    <Tag className="text-ink font-sans text-[1.35rem] font-extrabold tracking-[0.02em] uppercase sm:text-[1.6rem]">
+    <Tag className="text-ink font-serif text-[1.5rem] font-semibold tracking-[-0.01em] sm:text-[1.75rem]">
       {href ? (
         <Link href={href} className="hover:text-accent">
           {title}
@@ -28,10 +28,20 @@ export function SectionHeading({
   )
 
   if (centered) {
-    return <div className={cn('text-center', className)}>{heading}</div>
+    return (
+      <div className={cn('text-center', className)}>
+        {heading}
+        <span aria-hidden="true" className="bg-accent mx-auto mt-3 block h-[3px] w-12" />
+      </div>
+    )
   }
 
-  return <div className={cn('rule-heading', className)}>{heading}</div>
+  return (
+    <div className={className}>
+      {heading}
+      <span aria-hidden="true" className="bg-accent mt-3 block h-[3px] w-12" />
+    </div>
+  )
 }
 
 /** Outlined "View more" button used at the foot of every homepage section. */
@@ -40,7 +50,7 @@ export function ViewMoreButton({ href, label = 'View more' }: { href: string; la
     <div className="mt-8 flex justify-center">
       <Link
         href={href}
-        className="border-ink text-ink hover:bg-ink hover:text-paper border px-7 py-2.5 text-[0.8rem] font-bold transition-colors"
+        className="border-ink text-ink hover:bg-ink hover:text-paper rounded-pill border px-7 py-2.5 text-[0.8rem] font-bold transition-colors"
       >
         {label}
       </Link>

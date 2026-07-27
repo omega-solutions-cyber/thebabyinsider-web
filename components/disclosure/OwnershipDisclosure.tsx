@@ -23,7 +23,7 @@ export function OwnershipDisclosure({
     return (
       <p
         className={cn(
-          'border-accent bg-accent-tint text-ink my-6 border-l-2 px-4 py-3 text-[0.85rem] leading-relaxed',
+          'border-accent bg-accent-tint text-ink rounded-card my-6 border-l-2 px-4 py-3 text-[0.85rem] leading-relaxed',
           className
         )}
       >
@@ -41,7 +41,7 @@ export function OwnershipDisclosure({
   return (
     <aside
       aria-label="Ownership disclosure"
-      className={cn('border-accent/35 bg-accent-tint my-8 border p-5', className)}
+      className={cn('border-accent/35 bg-accent-tint rounded-card my-8 border p-5', className)}
     >
       <h2 className="text-accent font-sans text-[0.7rem] font-bold tracking-[0.1em] uppercase">
         Ownership disclosure
@@ -72,7 +72,7 @@ export function AffiliateDisclosure({ note, className }: { note?: string; classN
   return (
     <aside
       aria-label="Affiliate disclosure"
-      className={cn('border-rule bg-surface my-8 border-l-2 px-4 py-3.5', className)}
+      className={cn('border-rule bg-surface rounded-card my-8 border-l-2 px-4 py-3.5', className)}
     >
       <p className="text-ink-muted text-[0.82rem] leading-relaxed">
         {note ??

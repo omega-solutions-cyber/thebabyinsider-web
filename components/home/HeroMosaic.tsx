@@ -29,7 +29,7 @@ function HeroPanel({
   return (
     <article
       className={cn(
-        'group bg-ink relative overflow-hidden',
+        'group bg-ink rounded-card relative overflow-hidden',
         // Fixed ratios per breakpoint. Stacked on mobile, mosaic from md up.
         'aspect-[3/2] sm:aspect-[16/9] md:aspect-auto',
         isLead ? 'md:row-span-2' : ''
@@ -53,13 +53,13 @@ function HeroPanel({
         className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/5"
       />
 
-      {showNewBadge && <NewBadge className="absolute top-0 left-0" />}
+      {showNewBadge && <NewBadge className="absolute top-4 left-4 z-10" />}
 
       <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6">
         <CategoryEyebrow slug={article.category} tone="paper" />
         <h2
           className={cn(
-            'mt-2 font-sans leading-[1.15] font-bold text-white',
+            'mt-2 font-serif leading-[1.15] font-semibold text-white',
             isLead ? 'text-xl sm:text-2xl lg:text-[1.7rem]' : 'text-lg lg:text-xl'
           )}
         >
@@ -85,7 +85,7 @@ export function HeroMosaic({ articles }: { articles: Article[] }) {
     <section aria-label="Featured stories" className="bg-paper">
       <div
         className={cn(
-          'bg-rule grid gap-px',
+          'grid gap-2.5',
           // The lead panel takes the left half and both rows; the two
           // secondaries stack on the right. Row height is fixed, so the box is
           // reserved before paint.

@@ -11,37 +11,41 @@
    --------------------------------------------------------------------------- */
 
 @theme {
-  /* Base */
-  --color-ink: #111827;
-  --color-ink-muted: #5b6472;
-  --color-ink-faint: #656d7a;
-  --color-paper: #fffdf9;
-  --color-surface: #f5f3ef;
-  --color-rule: #e5e1da;
-  --color-footer: #0b0f14;
+  /* Base — clean white page, deep indigo-black ink. */
+  --color-ink: #1b1a2e;
+  --color-ink-muted: #56536e;
+  --color-ink-faint: #615e7a;
+  --color-paper: #ffffff;
+  --color-surface: #f4f4f7;
+  --color-rule: #e5e5ea;
+  --color-footer: #171426;
 
-  /* Accent — echoes the reference's newsletter band */
-  --color-accent: #0a6a73;
-  --color-accent-dark: #075158;
-  --color-accent-tint: #e6f2f3;
-  /* Legible teal for use ON the dark footer — the base accent is far too
-     dark against #0B0F14 (3.0:1). */
-  --color-accent-on-dark: #4fbcc7;
+  /* Accent — deep plum. Carries the newsletter band, eyebrow rules and links. */
+  --color-accent: #7b2d4e;
+  --color-accent-dark: #5e2139;
+  --color-accent-tint: #f7ebf0;
+  /* The base accent is too dark on the footer; this is its counterpart. */
+  --color-accent-on-dark: #d9a0b6;
 
-  /* Call-to-action (subscribe button) */
-  --color-cta: #e0234e;
-  --color-cta-dark: #bd1740;
+  /* Call-to-action — warm antique gold. */
+  --color-cta: #8f5a10;
+  --color-cta-dark: #74490c;
 
   /* Category accents — eyebrow labels only. Every value is verified
-     ≥4.5:1 against BOTH paper and surface, since eyebrows sit on both. */
-  --color-cat-pregnancy: #b0347c;
-  --color-cat-newborn: #0a6a73;
-  --color-cat-sleep: #4c3f91;
+     >=4.5:1 against BOTH paper and surface, since eyebrows sit on both. */
+  --color-cat-pregnancy: #a8306f;
+  --color-cat-newborn: #0f6e75;
+  --color-cat-sleep: #3f4a96;
   --color-cat-feeding: #9c5323;
   --color-cat-milestones: #1f6f43;
   --color-cat-health: #a62b36;
   --color-cat-gear: #2b5f9e;
   --color-cat-parenting: #7a4e8c;
+
+  /* Corner radius — the layout is soft-cornered throughout, which is the
+     clearest structural break from the hard-edged magazine template. */
+  --radius-card: 0.625rem;
+  --radius-pill: 999px;
 
   /* Type */
   --font-serif: var(--font-display), Georgia, 'Times New Roman', serif;

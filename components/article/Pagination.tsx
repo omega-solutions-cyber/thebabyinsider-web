@@ -25,7 +25,7 @@ export function Pagination({
         <Link
           href={href(page - 1)}
           rel="prev"
-          className="border-rule hover:border-ink border px-4 py-2 text-[0.8rem] font-bold"
+          className="border-rule hover:border-ink rounded-pill border px-4 py-2 text-[0.8rem] font-bold"
         >
           Previous
         </Link>
@@ -37,7 +37,7 @@ export function Pagination({
           href={href(p)}
           aria-current={p === page ? 'page' : undefined}
           className={cn(
-            'min-w-[2.5rem] border px-3 py-2 text-center text-[0.8rem] font-bold',
+            'rounded-pill min-w-[2.5rem] border px-3 py-2 text-center text-[0.8rem] font-bold',
             p === page ? 'border-ink bg-ink text-paper' : 'border-rule hover:border-ink'
           )}
         >
@@ -49,7 +49,7 @@ export function Pagination({
         <Link
           href={href(page + 1)}
           rel="next"
-          className="border-rule hover:border-ink border px-4 py-2 text-[0.8rem] font-bold"
+          className="border-rule hover:border-ink rounded-pill border px-4 py-2 text-[0.8rem] font-bold"
         >
           Next
         </Link>

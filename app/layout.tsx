@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Inter, Inter_Tight } from 'next/font/google'
+import { Inter, Fraunces } from 'next/font/google'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import './globals.css'
 
@@ -18,10 +18,13 @@ const body = Inter({
   variable: '--font-body',
 })
 
-const display = Inter_Tight({
+// A serif masthead voice: warmer and more editorial than the all-sans
+// grotesque this genre defaults to, and the clearest single signal that this
+// is not another template site.
+const display = Fraunces({
   subsets: ['latin'],
   display: 'swap',
-  weight: ['600', '700', '800'],
+  weight: ['600', '700'],
   variable: '--font-display',
 })
 

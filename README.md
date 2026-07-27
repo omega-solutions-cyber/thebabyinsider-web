@@ -155,9 +155,28 @@ session scratchpad, not committed):
 - **Zero axe violations** (wcag2a/2aa/21a/21aa) on all five page types
 - Disclosure audit passes, and fails correctly when a disclosure is removed
 
-Palette contrast is verified against both `paper` and `surface` backgrounds;
-`--color-accent-on-dark` exists because the base accent is only 3.0:1 on the
-footer.
+Palette contrast is verified against white, `surface`, and — for the filled
+category pills — against the pill fill itself. `--color-accent-on-dark` exists
+because the base accent is far too dark on the footer.
+
+## Visual identity
+
+Deliberately not the hard-edged, all-sans magazine template this genre defaults
+to:
+
+- **Fraunces** serif headlines over **Inter** UI/body (`--font-display` /
+  `--font-body`)
+- Deep plum accent with an antique-gold CTA, on white
+- Soft corners throughout (`--radius-card`, `--radius-pill`)
+- Category labels are filled pills, not plain coloured uppercase text
+- Section headings are title-case serif with a short accent bar, not uppercase
+  with a full-width hairline
+
+## Do not run Prettier over content
+
+`content/**/*.mdx` is in `.prettierignore`. Prettier reflows markdown inside JSX
+blocks, which silently merges `<KeyTakeaways>` bullet lists into one paragraph —
+it renders as prose with stray hyphens and nothing errors.
 
 ## Before launch
 

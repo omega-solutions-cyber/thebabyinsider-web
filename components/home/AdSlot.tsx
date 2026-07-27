@@ -24,7 +24,7 @@ export function AdSlot({
       </span>
       <div
         className={cn(
-          'bg-surface mt-2 w-full',
+          'bg-surface rounded-card mt-2 w-full',
           size === 'leaderboard' ? 'h-[90px] max-w-[728px]' : 'h-[250px] max-w-[300px]'
         )}
       />
