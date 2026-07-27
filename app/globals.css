@@ -1,0 +1,126 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+
+/* ---------------------------------------------------------------------------
+   The Baby Insider design system.
+
+   Deliberately NOT the BabyLeap palette — this is an independent publication
+   and must not read as an extension of the app's brand. Neutral editorial base
+   (near-black ink on warm paper), one teal accent, and eight category accents
+   used only for the small uppercase eyebrow labels on cards.
+   --------------------------------------------------------------------------- */
+
+@theme {
+  /* Base */
+  --color-ink: #111827;
+  --color-ink-muted: #5b6472;
+  --color-ink-faint: #8b93a1;
+  --color-paper: #fffdf9;
+  --color-surface: #f5f3ef;
+  --color-rule: #e5e1da;
+  --color-footer: #0b0f14;
+
+  /* Accent — echoes the reference's newsletter band */
+  --color-accent: #0e7c86;
+  --color-accent-dark: #0a5c64;
+  --color-accent-tint: #e6f2f3;
+
+  /* Call-to-action (subscribe button) */
+  --color-cta: #e0234e;
+  --color-cta-dark: #bd1740;
+
+  /* Category accents — eyebrow labels only. All ≥4.5:1 on paper. */
+  --color-cat-pregnancy: #b0347c;
+  --color-cat-newborn: #0e7c86;
+  --color-cat-sleep: #4c3f91;
+  --color-cat-feeding: #b4622a;
+  --color-cat-milestones: #1f6f43;
+  --color-cat-health: #a62b36;
+  --color-cat-gear: #2b5f9e;
+  --color-cat-parenting: #7a4e8c;
+
+  /* Type */
+  --font-serif: var(--font-display), Georgia, 'Times New Roman', serif;
+  --font-sans: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+
+  /* Layout */
+  --spacing-gutter: 1.25rem;
+  --breakpoint-3xl: 90rem;
+}
+
+/* Give the whole document the editorial base. */
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Headlines are the serif; UI text stays sans. */
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-serif);
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* Anchor targets clear the sticky header. */
+  :target {
+    scroll-margin-top: 6rem;
+  }
+
+  /* One consistent, always-visible focus treatment. */
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  /* The uppercase section heading with a hairline rule, used on the home page
+     and archives. Matches the reference layout's "KETO DIET ———" treatment. */
+  .rule-heading {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .rule-heading::after {
+    content: '';
+    flex: 1 1 auto;
+    height: 1px;
+    background-color: var(--color-rule);
+  }
+}
+
+/* Article prose. Wider measure than Tailwind's default, serif subheads. */
+@utility prose-editorial {
+  --tw-prose-body: var(--color-ink);
+  --tw-prose-headings: var(--color-ink);
+  --tw-prose-links: var(--color-accent);
+  --tw-prose-bold: var(--color-ink);
+  --tw-prose-quotes: var(--color-ink);
+  --tw-prose-quote-borders: var(--color-accent);
+  --tw-prose-captions: var(--color-ink-muted);
+  --tw-prose-hr: var(--color-rule);
+  --tw-prose-th-borders: var(--color-rule);
+  --tw-prose-td-borders: var(--color-rule);
+}

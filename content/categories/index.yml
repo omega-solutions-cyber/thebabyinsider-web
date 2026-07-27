@@ -1,0 +1,90 @@
+# Single source of truth for categories: header nav, footer columns, homepage
+# section order, card eyebrow colour, and each category page's indexable intro.
+# `order` drives nav + homepage section sequence.
+
+- slug: pregnancy
+  name: Pregnancy
+  order: 1
+  color: '#B0347C'
+  colorVar: cat-pregnancy
+  tagline: Trimester by trimester, without the scare stories
+  description: >-
+    Evidence-based guidance for every stage of pregnancy — what's happening week
+    to week, which symptoms warrant a call to your provider, how to prepare for
+    birth, and what to actually buy before the baby arrives.
+
+- slug: newborn
+  name: Newborn
+  order: 2
+  color: '#0E7C86'
+  colorVar: cat-newborn
+  tagline: The first twelve weeks, decoded
+  description: >-
+    The fourth trimester is the steepest learning curve most parents ever face.
+    Here's what's normal, what isn't, and how to get through the first three
+    months with your judgement intact.
+
+- slug: sleep
+  name: Sleep
+  order: 3
+  color: '#4C3F91'
+  colorVar: cat-sleep
+  tagline: What the research actually says about baby sleep
+  description: >-
+    Wake windows, night wakings, regressions, safe sleep and the full range of
+    settling approaches — explained without dogma, so you can pick the one that
+    fits your family.
+
+- slug: feeding
+  name: Feeding
+  order: 4
+  color: '#B4622A'
+  colorVar: cat-feeding
+  tagline: Breast, bottle, purée or baby-led
+  description: >-
+    Latch problems, supply questions, formula comparisons, starting solids,
+    allergens and fussy eating — practical answers reviewed by paediatric
+    clinicians and lactation consultants.
+
+- slug: milestones
+  name: Milestones
+  order: 5
+  color: '#1F6F43'
+  colorVar: cat-milestones
+  tagline: Development, in ranges rather than deadlines
+  description: >-
+    Rolling, sitting, crawling, first words and everything after. We publish the
+    real developmental ranges — not the single scary number — plus the specific
+    signs that are worth raising with your paediatrician.
+
+- slug: health
+  name: Health
+  order: 6
+  color: '#A62B36'
+  colorVar: cat-health
+  tagline: Common worries, answered by clinicians
+  description: >-
+    Fevers, rashes, reflux, vaccines and the endless winter of daycare
+    illnesses. Every article here is reviewed by a medical professional before
+    it publishes.
+
+- slug: gear
+  name: Gear
+  order: 7
+  color: '#2B5F9E'
+  colorVar: cat-gear
+  tagline: What's worth buying, and what really isn't
+  description: >-
+    Monitors, carriers, car seats, strollers and the apps parents actually keep
+    on their home screen. We explain our criteria openly and disclose every
+    commercial relationship.
+
+- slug: parenting
+  name: Parenting
+  order: 8
+  color: '#7A4E8C'
+  colorVar: cat-parenting
+  tagline: The part nobody warns you about
+  description: >-
+    Parental mental health, the division of labour at home, returning to work,
+    childcare decisions and keeping a relationship alive on four hours of sleep.
