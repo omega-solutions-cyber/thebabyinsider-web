@@ -59,7 +59,7 @@ function HeroPanel({
         <CategoryEyebrow slug={article.category} tone="paper" />
         <h2
           className={cn(
-            'mt-2 font-serif leading-[1.15] font-semibold text-white',
+            'mt-2 font-display leading-[1.15] font-semibold text-white',
             isLead ? 'text-xl sm:text-2xl lg:text-[1.7rem]' : 'text-lg lg:text-xl'
           )}
         >

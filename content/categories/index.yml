@@ -49,7 +49,7 @@
 - slug: milestones
   name: Milestones
   order: 5
-  color: '#1F6F43'
+  color: '#2F7D2F'
   colorVar: cat-milestones
   tagline: Development, in ranges rather than deadlines
   description: >-

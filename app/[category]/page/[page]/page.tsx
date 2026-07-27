@@ -67,7 +67,7 @@ export default async function CategoryPagePaginated({ params }: { params: Params
         />
 
         <header className="border-rule mt-5 border-b pb-7">
-          <h1 className="text-ink font-serif text-[2.1rem] font-semibold sm:text-[2.5rem]">
+          <h1 className="text-ink font-display text-[2.1rem] font-semibold sm:text-[2.5rem]">
             {cat.name}
           </h1>
           <p className="text-ink-muted mt-2 text-sm">

@@ -164,9 +164,12 @@ because the base accent is far too dark on the footer.
 Deliberately not the hard-edged, all-sans magazine template this genre defaults
 to:
 
-- **Fraunces** serif headlines over **Inter** UI/body (`--font-display` /
-  `--font-body`)
-- Deep plum accent with an antique-gold CTA, on white
+- **Manrope** headlines over **Inter** UI/body. next/font exposes Manrope as
+  `--font-headline`; the Tailwind token that consumes it is `--font-display`
+  (they must not share a name, or the var resolves to itself).
+- Deep forest-green accent with an antique-gold CTA, on white. The accent is
+  kept dark and desaturated so it stays distinct from the brighter Milestones
+  category green.
 - Soft corners throughout (`--radius-card`, `--radius-pill`)
 - Category labels are filled pills, not plain coloured uppercase text
 - Section headings are title-case serif with a short accent bar, not uppercase

@@ -71,7 +71,7 @@ export function RelatedArticles({ articles }: { articles: Article[] }) {
 
   return (
     <section className="mt-14" aria-labelledby="related-heading">
-      <h2 id="related-heading" className="text-ink font-serif text-xl font-semibold">
+      <h2 id="related-heading" className="text-ink font-display text-xl font-semibold">
         <span>Related reading</span>
       </h2>
       <div className="mt-6 grid gap-x-6 gap-y-8 sm:grid-cols-3">

@@ -19,7 +19,7 @@ export default function TagsPage() {
       <Breadcrumbs trail={[{ name: 'Home', url: '/' }, { name: 'Topics' }]} />
 
       <header className="border-rule mt-5 border-b pb-7">
-        <h1 className="text-ink font-serif text-[2.1rem] font-semibold sm:text-[2.5rem]">Topics</h1>
+        <h1 className="text-ink font-display text-[2.1rem] font-semibold sm:text-[2.5rem]">Topics</h1>
         <p className="text-ink-muted mt-3 text-[0.95rem]">
           {tags.length} topics across {new Set(tags.map((t) => t.tag)).size} articles.
         </p>

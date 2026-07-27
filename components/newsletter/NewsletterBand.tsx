@@ -22,7 +22,7 @@ export function NewsletterBand({
         <div>
           <h2
             id={`nl-${source}`}
-            className="flex items-center gap-3 font-serif text-2xl font-semibold tracking-[-0.01em]"
+            className="flex items-center gap-3 font-display text-2xl font-semibold tracking-[-0.01em]"
           >
             <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
               <path d="M2 21l21-9L2 3v7l15 2-15 2v7z" />

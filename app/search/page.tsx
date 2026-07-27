@@ -19,7 +19,7 @@ export default function SearchPage() {
         <Breadcrumbs trail={[{ name: 'Home', url: '/' }, { name: 'Search' }]} />
       </Container>
       <Container className="mt-5 pb-10">
-        <h1 className="text-ink font-serif text-[1.95rem] font-semibold sm:text-[2.3rem]">
+        <h1 className="text-ink font-display text-[1.95rem] font-semibold sm:text-[2.3rem]">
           Search
         </h1>
         <SearchPageClient />

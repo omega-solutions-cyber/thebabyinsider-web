@@ -18,8 +18,8 @@ async function loadFonts() {
 
   const dir = join(process.cwd(), 'public', 'fonts')
   const [bold, semibold] = await Promise.all([
-    readFile(join(dir, 'Fraunces-Bold.ttf')),
-    readFile(join(dir, 'Fraunces-SemiBold.ttf')),
+    readFile(join(dir, 'Manrope-Bold.ttf')),
+    readFile(join(dir, 'Manrope-SemiBold.ttf')),
   ])
 
   fontCache = {
@@ -35,7 +35,7 @@ async function loadFonts() {
 export async function renderOgImage({
   title,
   eyebrow,
-  accent = '#7B2D4E',
+  accent = '#16513E',
   footnote,
 }: {
   title: string
@@ -80,7 +80,7 @@ export async function renderOgImage({
             fontSize: title.length > 70 ? 60 : 72,
             fontWeight: 700,
             lineHeight: 1.1,
-            color: '#1B1A2E',
+            color: '#16191C',
             letterSpacing: -1,
           }}
         >
@@ -113,7 +113,7 @@ export async function renderOgImage({
               fontWeight: 700,
               letterSpacing: 3,
               textTransform: 'uppercase',
-              color: '#1B1A2E',
+              color: '#16191C',
             }}
           >
             {siteConfig.name}
@@ -121,15 +121,15 @@ export async function renderOgImage({
         </div>
 
         {footnote && (
-          <div style={{ display: 'flex', fontSize: 22, color: '#56536E' }}>{footnote}</div>
+          <div style={{ display: 'flex', fontSize: 22, color: '#545B62' }}>{footnote}</div>
         )}
       </div>
     </div>,
     {
       ...OG_SIZE,
       fonts: [
-        { name: 'Fraunces', data: fonts.bold, weight: 700, style: 'normal' },
-        { name: 'Fraunces', data: fonts.semibold, weight: 600, style: 'normal' },
+        { name: 'Manrope', data: fonts.bold, weight: 700, style: 'normal' },
+        { name: 'Manrope', data: fonts.semibold, weight: 600, style: 'normal' },
       ],
     }
   )

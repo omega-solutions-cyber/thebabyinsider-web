@@ -16,7 +16,7 @@ export function SectionHeading({
   className?: string
 }) {
   const heading = (
-    <Tag className="text-ink font-serif text-[1.5rem] font-semibold tracking-[-0.01em] sm:text-[1.75rem]">
+    <Tag className="text-ink font-display text-[1.5rem] font-semibold tracking-[-0.01em] sm:text-[1.75rem]">
       {href ? (
         <Link href={href} className="hover:text-accent">
           {title}

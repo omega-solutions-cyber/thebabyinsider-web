@@ -103,7 +103,7 @@ export default async function ArticlePage({ params }: { params: Params }) {
         <article>
           <header>
             <CategoryEyebrow slug={article.category} />
-            <h1 className="text-ink mt-2 font-serif text-[1.9rem] leading-[1.12] font-semibold sm:text-[2.25rem]">
+            <h1 className="text-ink mt-2 font-display text-[1.9rem] leading-[1.12] font-semibold sm:text-[2.25rem]">
               {article.title}
             </h1>
             <p className="text-ink-muted mt-4 text-[1.05rem] leading-relaxed">{article.summary}</p>
@@ -148,7 +148,7 @@ export default async function ArticlePage({ params }: { params: Params }) {
 
           <TableOfContents toc={article.toc} className="my-8" />
 
-          <div className="prose prose-editorial prose-headings:font-serif prose-headings:font-semibold prose-h2:mt-10 prose-h2:text-[1.4rem] prose-h3:text-[1.1rem] prose-a:font-medium prose-li:leading-relaxed max-w-none">
+          <div className="prose prose-editorial prose-headings:font-display prose-headings:font-semibold prose-h2:mt-10 prose-h2:text-[1.4rem] prose-h3:text-[1.1rem] prose-a:font-medium prose-li:leading-relaxed max-w-none">
             <MDXContent
               code={article.body}
               components={{

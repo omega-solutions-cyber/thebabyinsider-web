@@ -11,21 +11,23 @@
    --------------------------------------------------------------------------- */
 
 @theme {
-  /* Base — clean white page, deep indigo-black ink. */
-  --color-ink: #1b1a2e;
-  --color-ink-muted: #56536e;
-  --color-ink-faint: #615e7a;
+  /* Base — clean white page, neutral near-black ink. */
+  --color-ink: #16191c;
+  --color-ink-muted: #545b62;
+  --color-ink-faint: #5f666d;
   --color-paper: #ffffff;
-  --color-surface: #f4f4f7;
-  --color-rule: #e5e5ea;
-  --color-footer: #171426;
+  --color-surface: #f4f5f6;
+  --color-rule: #e4e6e8;
+  --color-footer: #101418;
 
-  /* Accent — deep plum. Carries the newsletter band, eyebrow rules and links. */
-  --color-accent: #7b2d4e;
-  --color-accent-dark: #5e2139;
-  --color-accent-tint: #f7ebf0;
+  /* Accent — deep forest green. Carries the newsletter band, links and section
+     accents. Kept dark and desaturated so it stays distinguishable from the
+     brighter Milestones category green. */
+  --color-accent: #16513e;
+  --color-accent-dark: #103b2d;
+  --color-accent-tint: #e7f1ec;
   /* The base accent is too dark on the footer; this is its counterpart. */
-  --color-accent-on-dark: #d9a0b6;
+  --color-accent-on-dark: #74c7a4;
 
   /* Call-to-action — warm antique gold. */
   --color-cta: #8f5a10;
@@ -37,7 +39,7 @@
   --color-cat-newborn: #0f6e75;
   --color-cat-sleep: #3f4a96;
   --color-cat-feeding: #9c5323;
-  --color-cat-milestones: #1f6f43;
+  --color-cat-milestones: #2f7d2f;
   --color-cat-health: #a62b36;
   --color-cat-gear: #2b5f9e;
   --color-cat-parenting: #7a4e8c;
@@ -48,7 +50,8 @@
   --radius-pill: 999px;
 
   /* Type */
-  --font-serif: var(--font-display), Georgia, 'Times New Roman', serif;
+  /* Named `display`, not `serif` — headlines are a sans. */
+  --font-display: var(--font-headline), ui-sans-serif, system-ui, sans-serif;
   --font-sans: var(--font-body), ui-sans-serif, system-ui, sans-serif;
 
   /* Layout */
@@ -82,7 +85,7 @@
   h2,
   h3,
   h4 {
-    font-family: var(--font-serif);
+    font-family: var(--font-display);
     text-wrap: balance;
   }
 

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Inter, Fraunces } from 'next/font/google'
+import { Inter, Manrope } from 'next/font/google'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import './globals.css'
 
@@ -18,14 +18,13 @@ const body = Inter({
   variable: '--font-body',
 })
 
-// A serif masthead voice: warmer and more editorial than the all-sans
-// grotesque this genre defaults to, and the clearest single signal that this
-// is not another template site.
-const display = Fraunces({
+// Manrope for headlines: geometric and even, with none of the quirks a display
+// serif brings. Pairs invisibly with Inter for body copy.
+const display = Manrope({
   subsets: ['latin'],
   display: 'swap',
-  weight: ['600', '700'],
-  variable: '--font-display',
+  weight: ['600', '700', '800'],
+  variable: '--font-headline',
 })
 
 export const metadata: Metadata = {

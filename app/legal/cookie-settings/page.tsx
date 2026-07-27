@@ -26,7 +26,7 @@ export default function CookieSettingsPage() {
       </Container>
 
       <Container className="mt-5 pb-8">
-        <h1 className="text-ink font-serif text-[1.95rem] font-semibold sm:text-[2.3rem]">
+        <h1 className="text-ink font-display text-[1.95rem] font-semibold sm:text-[2.3rem]">
           Cookie Settings
         </h1>
         <p className="text-ink-muted mt-3 text-[0.95rem] leading-relaxed">

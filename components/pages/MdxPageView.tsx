@@ -48,7 +48,7 @@ export function MdxPageView({
 
       <Container className="mt-5 pb-6">
         <header className="border-rule border-b pb-6">
-          <h1 className="text-ink font-serif text-[1.95rem] leading-tight font-semibold sm:text-[2.3rem]">
+          <h1 className="text-ink font-display text-[1.95rem] leading-tight font-semibold sm:text-[2.3rem]">
             {page.title}
           </h1>
           <p className="text-ink-muted mt-3 text-[0.95rem] leading-relaxed">{page.summary}</p>
@@ -60,7 +60,7 @@ export function MdxPageView({
 
         <TableOfContents toc={page.toc} className="my-8" />
 
-        <div className="prose prose-editorial prose-headings:font-serif prose-headings:font-semibold prose-h2:mt-9 prose-h2:text-[1.3rem] mt-8 max-w-none">
+        <div className="prose prose-editorial prose-headings:font-display prose-headings:font-semibold prose-h2:mt-9 prose-h2:text-[1.3rem] mt-8 max-w-none">
           <MDXContent code={page.body} />
         </div>
       </Container>

@@ -69,7 +69,7 @@ export function ArticleCard({
 
         <h3
           className={cn(
-            'text-ink mt-2 font-serif leading-snug font-semibold',
+            'text-ink mt-2 font-display leading-snug font-semibold',
             variant === 'large' ? 'text-xl sm:text-2xl' : 'text-[0.95rem]'
           )}
         >

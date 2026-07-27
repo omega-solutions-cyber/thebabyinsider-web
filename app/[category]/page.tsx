@@ -59,7 +59,7 @@ export default async function CategoryPage({ params }: { params: Params }) {
         <Breadcrumbs trail={[{ name: 'Home', url: '/' }, { name: cat.name }]} />
 
         <header className="border-rule mt-5 border-b pb-7">
-          <h1 className="text-ink font-serif text-[2.1rem] font-semibold tracking-[-0.01em] sm:text-[2.5rem]">
+          <h1 className="text-ink font-display text-[2.1rem] font-semibold tracking-[-0.01em] sm:text-[2.5rem]">
             {cat.name}
           </h1>
           <p className="text-ink-muted mt-2 font-sans text-base">{cat.tagline}</p>
