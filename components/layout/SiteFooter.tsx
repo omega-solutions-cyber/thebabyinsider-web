@@ -103,12 +103,12 @@ export function SiteFooter() {
           <LinkColumn heading={siteConfig.name} links={[...siteConfig.footerBrandLinks]} />
         </div>
 
-        {/* Ownership stated in plain language, on every page. */}
+        {/* No sitewide ownership statement here by product decision. The
+            disclosure that carries the legal weight is the in-article one,
+            which renders on any article discussing our own product and is
+            enforced at build time. See /about and /advertising-disclosure. */}
         <div className="border-paper/12 border-t py-7">
-          <p className="text-paper/70 max-w-[52rem] text-[0.75rem] leading-relaxed">
-            {siteConfig.ownership.statement}
-          </p>
-          <p className="text-paper/70 mt-4 text-[0.75rem]">
+          <p className="text-paper/70 text-[0.75rem]">
             © {siteConfig.founded}–{new Date().getFullYear()} {siteConfig.name}. Information on this
             site is for general education and is not a substitute for advice from your own
             healthcare provider.

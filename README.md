@@ -96,6 +96,26 @@ non-zero on any violation.
 A plain `grep -l babyleap` is **not** a valid substitute — the footer's ownership statement mentions
 the product on every page, so it matches everything.
 
+## Newsletter — Discord only, no subscriptions
+
+`app/api/newsletter/route.ts` posts submitted addresses to a Discord channel and
+does nothing else. **Nobody is subscribed to a mailing list**, and no marketing
+consent is recorded.
+
+Three things are coupled to that and must move together when an ESP is wired up:
+
+1. `NewsletterForm`'s success copy says we will be in touch when the newsletter
+   launches — it must not claim a subscription or a confirmation email.
+2. `content/pages/legal-privacy.mdx` names Discord as the processor and states
+   that no address has been added to a mailing list.
+3. Addresses collected during this phase have not given marketing consent, so
+   they need a fresh opt-in before they can be mailed.
+
+Validation, honeypot, submit-timing and IP rate limiting are unchanged and still
+apply. Unlike the app's `discord.ts`, a failed webhook returns an error to the
+caller rather than being swallowed — silently dropping an address would leave
+the reader believing they had signed up.
+
 ## Analytics and metrics
 
 View and comment counts are **deliberately absent** at launch. `ArticleMeta` accepts `views` and
@@ -148,9 +168,12 @@ footer.
 - [ ] Have `content/pages/legal-*.mdx` reviewed by a lawyer — they are templates, and say so.
 - [ ] Wire `components/legal/CookiePreferences.tsx` to a real CMP and make analytics/ad scripts gate
       on it.
-- [ ] Create the Klaviyo list with **double opt-in on**, and use a separate sending subdomain so this
-      list's reputation cannot affect BabyLeap app deliverability.
-- [ ] Set `NEXT_PUBLIC_SITE_URL`, `KLAVIYO_*`, `NEXT_PUBLIC_POSTHOG_*` in Vercel.
+- [ ] Set `NEXT_PUBLIC_SITE_URL`, `DISCORD_NEWSLETTER_WEBHOOK_URL`, `NEXT_PUBLIC_POSTHOG_*` in
+      Vercel.
+- [ ] Before actually mailing anyone: wire a real ESP with **double opt-in**, re-confirm every
+      address collected during the Discord-only phase, use a separate sending subdomain so this
+      list's reputation cannot affect BabyLeap app deliverability, and update the privacy policy
+      and the form's success copy (see below).
 - [ ] Point `thebabyinsider.com` at the Vercel project; 308 `www` → apex.
 - [ ] Submit the sitemap to Google Search Console and Bing Webmaster Tools.
 

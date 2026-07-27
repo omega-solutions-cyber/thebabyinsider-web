@@ -35,8 +35,6 @@ export const siteConfig = {
     parentName: 'Omega Solutions',
     productName: 'BabyLeap',
     productUrl: 'https://www.babyleapapp.com',
-    statement:
-      'The Baby Insider is published by Omega Solutions, the company behind the BabyLeap baby development app. When we write about BabyLeap, we say so directly — see our editorial process for how we keep coverage of our own product honest.',
   },
 
   /** Shown in the thin bar above every page. */

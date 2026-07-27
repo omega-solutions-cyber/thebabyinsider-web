@@ -4,7 +4,21 @@ import { z } from 'zod'
 export const runtime = 'nodejs'
 export const dynamic = 'force-dynamic'
 
-const KLAVIYO_REVISION = '2025-01-15'
+/**
+ * Newsletter capture — Discord logging only.
+ *
+ * We are NOT subscribing anyone to a mailing list yet. Addresses are posted to
+ * a Discord channel so we can see demand and collect the list manually; no ESP
+ * is involved and no marketing consent is recorded anywhere.
+ *
+ * Two consequences that must not drift:
+ *   1. The form must not tell people they are subscribed — see NewsletterForm.
+ *   2. The privacy policy must not list an ESP as a processor while this is the
+ *      implementation.
+ *
+ * When a real ESP is wired up, replace `notifyDiscord` with the provider call,
+ * turn on double opt-in, and update both of the above.
+ */
 
 const schema = z.object({
   email: z.string().email().max(254),
@@ -19,8 +33,8 @@ const schema = z.object({
 
 /**
  * In-memory sliding window. Adequate at launch traffic and adds no
- * infrastructure; swap for Upstash if this ever runs on more than one instance
- * under real load.
+ * infrastructure; swap for Upstash if this runs on more than one instance under
+ * real load.
  */
 const hits = new Map<string, number[]>()
 const WINDOW_MS = 60_000
@@ -32,7 +46,6 @@ function rateLimited(ip: string): boolean {
   recent.push(now)
   hits.set(ip, recent)
 
-  // Opportunistic cleanup so the map cannot grow without bound.
   if (hits.size > 5000) {
     for (const [key, times] of hits) {
       if (times.every((t) => now - t >= WINDOW_MS)) hits.delete(key)
@@ -45,15 +58,42 @@ function rateLimited(ip: string): boolean {
 const fail = (message: string, status = 400) =>
   NextResponse.json({ ok: false, message }, { status })
 
-export async function POST(request: Request) {
-  const apiKey = process.env.KLAVIYO_PRIVATE_API_KEY
-  const listId = process.env.KLAVIYO_LIST_ID
+async function notifyDiscord(payload: {
+  email: string
+  source: string
+  categoryInterest?: string
+  path?: string
+}) {
+  const webhook = process.env.DISCORD_NEWSLETTER_WEBHOOK_URL
+  if (!webhook) throw new Error('DISCORD_NEWSLETTER_WEBHOOK_URL is not configured')
 
-  if (!apiKey || !listId) {
-    console.error('[newsletter] KLAVIYO_PRIVATE_API_KEY or KLAVIYO_LIST_ID is not configured')
-    return fail('Newsletter signup is temporarily unavailable.', 503)
+  const res = await fetch(webhook, {
+    method: 'POST',
+    headers: { 'content-type': 'application/json' },
+    body: JSON.stringify({
+      content: [
+        '📬 **NEW NEWSLETTER SIGNUP** — The Baby Insider',
+        '',
+        `email: ${payload.email}`,
+        `source: ${payload.source}`,
+        payload.categoryInterest ? `category: ${payload.categoryInterest}` : null,
+        payload.path ? `page: ${payload.path}` : null,
+      ]
+        // Only drop omitted fields — a deliberate blank line must survive,
+        // which `filter(Boolean)` would strip.
+        .filter((line) => line !== null)
+        .join('\n'),
+      // Nothing in this message should ever ping a role or @everyone.
+      allowed_mentions: { parse: [] },
+    }),
+  })
+
+  if (!res.ok) {
+    throw new Error(`Discord webhook returned ${res.status}: ${await res.text()}`)
   }
+}
 
+export async function POST(request: Request) {
   const ip =
     request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ??
     request.headers.get('x-real-ip') ??
@@ -70,61 +110,23 @@ export async function POST(request: Request) {
     return fail('Please enter a valid email address.')
   }
 
-  // Bot signals. Both respond with a success shape so scrapers learn nothing
-  // about which check caught them.
+  // Bot signals. Both return a success shape so scrapers learn nothing about
+  // which check caught them.
   if (parsed.company) return NextResponse.json({ ok: true })
   if (parsed.elapsedMs != null && parsed.elapsedMs < 2000) return NextResponse.json({ ok: true })
 
   try {
-    const res = await fetch('https://a.klaviyo.com/api/profile-subscription-bulk-create-jobs/', {
-      method: 'POST',
-      headers: {
-        Authorization: `Klaviyo-API-Key ${apiKey}`,
-        revision: KLAVIYO_REVISION,
-        'content-type': 'application/json',
-        accept: 'application/json',
-      },
-      body: JSON.stringify({
-        data: {
-          type: 'profile-subscription-bulk-create-job',
-          attributes: {
-            profiles: {
-              data: [
-                {
-                  type: 'profile',
-                  attributes: {
-                    email: parsed.email,
-                    // Attribution for which placements and articles convert.
-                    properties: {
-                      site: 'the-baby-insider',
-                      signup_source: parsed.source,
-                      first_article: parsed.path,
-                      category_interest: parsed.categoryInterest,
-                    },
-                    subscriptions: {
-                      email: { marketing: { consent: 'SUBSCRIBED' } },
-                    },
-                  },
-                },
-              ],
-            },
-          },
-          relationships: {
-            list: { data: { type: 'list', id: listId } },
-          },
-        },
-      }),
+    await notifyDiscord({
+      email: parsed.email,
+      source: parsed.source,
+      categoryInterest: parsed.categoryInterest,
+      path: parsed.path,
     })
-
-    if (!res.ok) {
-      // Never surface Klaviyo's response body to the client.
-      console.error('[newsletter] Klaviyo error', res.status, await res.text())
-      return fail('We could not complete your signup. Please try again shortly.', 502)
-    }
-
     return NextResponse.json({ ok: true })
   } catch (error) {
-    console.error('[newsletter] request failed', error)
-    return fail('We could not complete your signup. Please try again shortly.', 502)
+    // If we could not record the address, say so — silently dropping it would
+    // leave the reader believing they had signed up.
+    console.error('[newsletter] failed to record signup', error)
+    return fail('We could not record your email. Please try again shortly.', 502)
   }
 }

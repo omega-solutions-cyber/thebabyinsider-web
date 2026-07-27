@@ -49,7 +49,11 @@ export function NewsletterForm({
 
       if (res.ok && json.ok) {
         setStatus('success')
-        setMessage('Almost there — check your inbox to confirm your subscription.')
+        // We are not subscribing anyone yet, so this must not say they are
+        // subscribed or that a confirmation email is coming.
+        setMessage(
+          "Thanks — we've got your email and will be in touch when the newsletter launches."
+        )
         form.reset()
       } else {
         setStatus('error')
