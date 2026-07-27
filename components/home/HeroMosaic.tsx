@@ -55,22 +55,42 @@ function HeroPanel({
 
       {showNewBadge && <NewBadge className="absolute top-4 left-4 z-10" />}
 
-      <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6">
+      <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6 lg:p-7">
         <CategoryEyebrow slug={article.category} tone="paper" />
+
+        {/* The lead panel is deliberately a whole size-step above the
+            secondaries — at similar sizes the mosaic reads as three equal
+            tiles and nothing leads the page. */}
         <h2
           className={cn(
-            'mt-2 font-display leading-[1.15] font-semibold text-white',
-            isLead ? 'text-xl sm:text-2xl lg:text-[1.7rem]' : 'text-lg lg:text-xl'
+            'font-display mt-3 text-balance text-white',
+            isLead
+              ? 'text-[1.6rem] leading-[1.08] font-extrabold tracking-[-0.025em] sm:text-[2rem] lg:text-[2.4rem]'
+              : 'text-[1.05rem] leading-[1.2] font-bold tracking-[-0.012em] lg:text-[1.25rem]'
           )}
         >
           <Link href={article.permalink} className="after:absolute after:inset-0">
             {article.title}
           </Link>
         </h2>
-        <p className="mt-3 inline-flex items-center gap-1.5 text-[0.8rem] text-white/90">
+
+        {/* A dek only on the lead: it earns the extra line, the secondaries
+            would just get noisy. */}
+        {isLead && (
+          <p className="mt-3 hidden max-w-[34rem] text-[0.9rem] leading-relaxed text-white/75 lg:line-clamp-2 lg:block">
+            {article.summary}
+          </p>
+        )}
+
+        <p
+          className={cn(
+            'inline-flex items-center gap-1.5 font-sans text-[0.65rem] font-bold tracking-[0.14em] text-white/80 uppercase',
+            isLead ? 'mt-4' : 'mt-2.5'
+          )}
+        >
           Read more
           <svg width="6" height="10" viewBox="0 0 6 10" aria-hidden="true" fill="none">
-            <path d="M1 1l4 4-4 4" stroke="currentColor" strokeWidth="1.5" />
+            <path d="M1 1l4 4-4 4" stroke="currentColor" strokeWidth="1.6" />
           </svg>
         </p>
       </div>

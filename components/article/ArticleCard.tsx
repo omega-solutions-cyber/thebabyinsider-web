@@ -56,21 +56,19 @@ export function ArticleCard({
         />
       </Link>
 
-      <div className={cn(horizontal ? 'min-w-0' : 'mt-3')}>
+      <div className={cn(horizontal ? 'min-w-0' : 'mt-3.5')}>
         <CategoryEyebrow slug={article.category} />
 
-        {showMeta && (
-          <ArticleMeta
-            updatedAt={article.updatedAt}
-            readingTime={article.readingTime}
-            className="mt-1.5"
-          />
-        )}
-
+        {/* Headline first, metadata under it. Putting the date above the
+            title made two small grey lines compete before the reader ever
+            reached the thing they are choosing between. */}
         <h3
           className={cn(
-            'text-ink mt-2 font-display leading-snug font-semibold',
-            variant === 'large' ? 'text-xl sm:text-2xl' : 'text-[0.95rem]'
+            'text-ink font-display mt-2.5 text-balance',
+            variant === 'large' && 'text-[1.4rem] leading-[1.15] font-extrabold tracking-[-0.02em] sm:text-[1.6rem]',
+            variant === 'default' && 'text-[1.05rem] leading-[1.25] font-bold tracking-[-0.012em]',
+            variant === 'compact' && 'text-[0.98rem] leading-[1.25] font-bold tracking-[-0.01em]',
+            variant === 'horizontal' && 'text-[0.92rem] leading-[1.3] font-bold'
           )}
         >
           <Link href={article.permalink} className="hover:text-accent">
@@ -79,22 +77,30 @@ export function ArticleCard({
         </h3>
 
         {showSummary && (
-          <p className="text-ink-muted mt-2 line-clamp-3 text-[0.85rem] leading-relaxed">
+          <p className="text-ink-muted mt-2 line-clamp-2 text-[0.86rem] leading-relaxed">
             {article.summary}
           </p>
+        )}
+
+        {showMeta && (
+          <ArticleMeta
+            updatedAt={article.updatedAt}
+            readingTime={article.readingTime}
+            className="mt-2.5"
+          />
         )}
 
         {!horizontal && (
           <p className="mt-3">
             <Link
               href={article.permalink}
-              className="text-ink hover:text-accent inline-flex items-center gap-1.5 text-[0.8rem]"
+              className="text-ink-muted hover:text-accent inline-flex items-center gap-1.5 font-sans text-[0.65rem] font-bold tracking-[0.14em] uppercase"
               tabIndex={-1}
               aria-hidden="true"
             >
               Read more
               <svg width="6" height="10" viewBox="0 0 6 10" aria-hidden="true" fill="none">
-                <path d="M1 1l4 4-4 4" stroke="currentColor" strokeWidth="1.5" />
+                <path d="M1 1l4 4-4 4" stroke="currentColor" strokeWidth="1.6" />
               </svg>
             </Link>
           </p>

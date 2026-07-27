@@ -35,7 +35,7 @@ export function ArticleMeta({
   return (
     <p
       className={cn(
-        'text-ink-muted flex flex-wrap items-center gap-x-2 gap-y-1 text-[0.7rem]',
+        'text-ink-faint flex flex-wrap items-center gap-x-2 gap-y-1 text-[0.7rem]',
         className
       )}
     >
