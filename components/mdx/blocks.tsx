@@ -511,6 +511,53 @@ export function ExpertNote({
   )
 }
 
+/* -------------------------------------------------------------- AppDownload */
+
+/**
+ * Compact store-download block for repeat placement inside an article.
+ *
+ * Like BabyLeapPromo, it renders its own disclosure and offers no prop to
+ * suppress it — a placement that sends readers to our paid product always says
+ * whose product it is. This variant keeps that to a single line so the block can
+ * appear more than once without the page turning into a disclosure sandwich.
+ */
+export function AppDownload({ headline }: { headline?: string }) {
+  const { productName, appStoreUrl, playStoreUrl } = siteConfig.ownership
+  const stores = [
+    { platform: 'the App Store', url: appStoreUrl },
+    { platform: 'Google Play', url: playStoreUrl },
+  ].filter((s) => Boolean(s.url))
+
+  if (stores.length === 0) return null
+
+  return (
+    <aside className="border-rule bg-surface rounded-card my-8 border p-5">
+      <p className="text-ink font-display text-[1.05rem] font-semibold">
+        {headline ?? `Get ${productName}`}
+      </p>
+      <div className="mt-3.5 flex flex-wrap items-center gap-2.5">
+        {stores.map((s, i) => (
+          <a
+            key={s.platform}
+            href={s.url}
+            target="_blank"
+            rel="sponsored nofollow noopener noreferrer"
+            className={cn(
+              'rounded-pill inline-block px-5 py-2.5 text-[0.8rem] font-bold transition-colors',
+              i === 0
+                ? 'bg-accent hover:bg-accent-dark text-white'
+                : 'border-rule text-ink hover:border-accent hover:text-accent border'
+            )}
+          >
+            Get it on {s.platform}
+          </a>
+        ))}
+      </div>
+      <OwnershipDisclosure variant="bar" className="mt-4 border-t border-b-0 pt-3 pb-0" />
+    </aside>
+  )
+}
+
 /* ------------------------------------------------------------ BabyLeapPromo */
 
 /**

@@ -7,6 +7,7 @@ import {
   BabyLeapPromo,
   ProductCard,
   ExpertNote,
+  AppDownload,
 } from './blocks'
 import {
   OwnershipDisclosure,
@@ -45,6 +46,7 @@ export const mdxComponents = {
   BabyLeapPromo,
   ProductCard,
   ExpertNote,
+  AppDownload,
   OwnershipDisclosure,
   AffiliateDisclosure,
   // FAQ, ProductRoundup, ComparisonTable and TestScores are bound to the
