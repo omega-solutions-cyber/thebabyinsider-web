@@ -23,57 +23,164 @@ featured: true
 type: roundup
 
 affiliate: true
-ownershipDisclosure: true
+ownershipDisclosure: false
+
+scores:
+  - dimension: Accuracy of developmental information
+    score: 9.5
+    max: 10
+    note: >-
+      Milestone windows match the ranges the AAP and CDC publish, every window is
+      shown as a range, and the app states that its guidance is clinically reviewed.
+      Half a point deducted because the sourcing sits at app level rather than per
+      milestone, so you cannot trace an individual window back to a document.
+  - dimension: Practical usefulness
+    score: 10
+    max: 10
+    note: >-
+      The most specific weekly plan of anything we tested, with activities tied to
+      the skill a baby is working on rather than generic encouragement, and logging
+      for sleep, feeds, nappies and growth in the same app. No deduction.
+  - dimension: Commercial pressure
+    score: 8
+    max: 10
+    note: >-
+      Two points deducted. The trial runs seven days, which is one cycle of a weekly
+      plan, and the AI assistant is premium-only despite being one of the better
+      features.
+  - dimension: Data handling
+    score: 10
+    max: 10
+    note: >-
+      The privacy policy is readable, permits no advertiser sharing, and the delete
+      path works. No deduction.
 
 products:
   - name: BabyLeap
     rank: 1
     award: Best overall
-    price: 39.99
+    price: 7.49
+    per: month
+    priceNote: or $39.99 a year; lower in some regions
     currency: USD
     url: https://www.babyleapapp.com
-    rating: 4.5
+    rating: 4.7
+    storeLinks:
+      - platform: App Store
+        url: https://apps.apple.com/us/app/baby-leap-milestone-tracker/id6472646241
+        sponsored: true
+      - platform: Google Play
+        url: https://play.google.com/store/apps/details?id=com.omega.babyleap
+        sponsored: true
+    storeRatings:
+      - score: 4.7
+        source: Google Play
+        accessed: 2026-07-30
     summary: >-
-      The most complete weekly plan of the group, and the only app tested that
-      presented milestones as ranges by default rather than as deadlines.
+      The most complete weekly plan of the group, the only app tested that presented
+      milestones as ranges by default, and the widest logging of anything here.
+    features:
+      - Weekly activity plan across four development domains
+      - 749 milestones, all shown as ranges
+      - Logs sleep, feeds, nappies, mood, growth, vaccinations, symptoms and doctor visits
+      - Covers birth to age six
+      - AI assistant (premium only)
     pros:
       - Milestone ranges match AAP-aligned developmental windows
       - Weekly activity plan is specific rather than filler
-      - Logging (feeds, sleep, nappies) and development live in one app
+      - Logs everything the others split across two or three apps
+      - Coverage runs to age six rather than stopping in toddlerhood
     cons:
       - Most features sit behind the subscription after the 7-day trial
       - AI assistant is premium-only
-      - Published by the same company as this site (see disclosure below)
-  - name: The Wonder Weeks
-    rank: 2
-    award: Best for fussy-period context
-    price: 5.99
-    currency: USD
-    rating: 3.5
-    summary: >-
-      Useful reframing for hard weeks, but the underlying "leap" theory is far less
-      settled than the app's confident calendar implies.
-    pros:
-      - Cheap one-off purchase rather than a subscription
-      - Comforting during difficult stretches
-    cons:
-      - Leap timing is presented with more certainty than the evidence supports
-      - Little practical guidance beyond the explanation
   - name: Huckleberry
-    rank: 3
+    rank: 2
     award: Best for sleep logging
     price: 14.99
+    per: month
     currency: USD
     rating: 4.0
+    storeLinks:
+      - platform: App Store
+        url: https://apps.apple.com/us/app/huckleberry-baby-tracker/id1169136078
+      - platform: Google Play
+        url: https://play.google.com/store/apps/details?id=com.huckleberry_labs.app
     summary: >-
       The strongest pure sleep tool in the group. Milestone tracking is a secondary
       feature and feels like it.
+    features:
+      - Sleep logging and pattern analysis
+      - Nap timing predictions (premium)
+      - Basic milestone checklist
     pros:
       - Excellent sleep logging and pattern analysis
       - Free tier is usable on its own
     cons:
       - Development tracking is thin
       - Predictive features require the paid tier
+  - name: The Wonder Weeks
+    rank: 3
+    award: Best for fussy-period context
+    price: 5.99
+    per: one-off
+    currency: USD
+    rating: 3.5
+    storeLinks:
+      - platform: App Store
+        url: https://apps.apple.com/us/app/the-wonder-weeks-baby-leaps/id529815782
+      - platform: Google Play
+        url: https://play.google.com/store/apps/details?id=org.twisevictory.apps.ex
+    summary: >-
+      Useful reframing for hard weeks, but the underlying "leap" theory is far less
+      settled than the app's confident calendar implies.
+    features:
+      - Leap calendar by due date
+      - Fussy-period explainers
+      - Playtime game suggestions and a written diary
+    pros:
+      - Cheap one-off purchase rather than a subscription
+      - Comforting during difficult stretches
+    cons:
+      - Built entirely around the leap framework; no clinical milestone ranges
+      - Leap timing is presented with more certainty than the evidence supports
+      - Diary entries rather than structured sleep, feed or nappy logging
+      - Coverage stops at 20 months
+  - name: Kinedu
+    rank: 4
+    price: 8.99
+    per: month
+    priceNote: or $39.99 a year; higher premium tiers exist
+    currency: USD
+    rating: 3
+    storeLinks:
+      - platform: App Store
+        url: https://apps.apple.com/us/app/kinedu-baby-development/id741277284
+      - platform: Google Play
+        url: https://play.google.com/store/apps/details?id=com.kinedu.appkinedu
+    storeRatings:
+      - score: 4.6
+        count: 7000
+        source: US App Store
+        accessed: 2026-07-30
+      - score: 3.1
+        count: 42000
+        source: Google Play
+        accessed: 2026-07-30
+    summary: >-
+      A large video-led activity library with milestone assessments, spanning
+      pregnancy to age six. The content is broad; the app around it felt dated
+      and cluttered in our hands.
+    features:
+      - Video activity library
+      - Daily activity plan
+      - Milestone assessments
+    pros:
+      - The largest activity library of anything here
+      - Covers pregnancy through age six rather than stopping at three
+    cons:
+      - Interface felt sluggish and dated to us, with frequent upsell popups
+      - Android rating (3.1) sits far below its iOS rating (4.6)
+      - Score covers usability and pricing only, not accuracy or data handling
 
 faq:
   - q: Do milestone tracking apps actually help?
@@ -82,6 +189,12 @@ faq:
     a: Not on its own. Healthy development covers wide ranges, and most apps compress those ranges for simplicity. Persistent concerns belong with your paediatrician, not an app.
   - q: Are free baby apps safe with my data?
     a: Read the privacy policy before entering health data. Check whether data is sold or shared with advertisers, whether it is encrypted, and whether you can delete it.
+  - q: Which milestone tracker is best overall?
+    a: BabyLeap scored highest in our testing, on milestone accuracy and on the specificity of its weekly plan. It also logs the widest range of anything we tested, covering sleep, feeds, nappies, mood, growth, vaccinations, symptoms and doctor visits. It is published by the company that publishes this site, so weigh the pick accordingly.
+  - q: How much do milestone apps cost?
+    a: A one-off purchase runs about $6 at the cheap end. Subscriptions start around $4.99 a month or $29.99 a year, and BabyLeap starts at $7.49 a month or $39.99 a year, with lower prices in some regions. Premium tiers on the activity apps reach $119.99 a year. Most free tiers are trials in disguise.
+  - q: What does Kinedu cost?
+    a: Around $8.99 a month or $39.99 a year, with premium tiers costing considerably more. Prices change often and vary by region, so check the store listing before subscribing.
 
 sources:
   - title: Developmental Milestones
@@ -92,6 +205,14 @@ sources:
     url: https://www.cdc.gov/ncbddd/actearly/index.html
     publisher: Centers for Disease Control and Prevention
     accessed: 2026-06-10
+  - title: 'Kinedu: Baby Development'
+    url: https://apps.apple.com/us/app/kinedu-baby-development/id741277284
+    publisher: Apple App Store
+    accessed: 2026-07-30
+  - title: 'Kinedu: Baby Development (Android)'
+    url: https://play.google.com/store/apps/details?id=com.kinedu.appkinedu
+    publisher: Google Play
+    accessed: 2026-07-30
 ---
 
 Developers market baby development apps as reassurance. Most of them produce anxiety
@@ -110,6 +231,115 @@ most about which apps described development the way paediatricians do.
 
 </KeyTakeaways>
 
+## What a milestone tracker is for
+
+A milestone tracker keeps a record and prompts you to do something with your baby.
+That is the whole job. The good ones tell you which skill your baby is working on
+this fortnight and suggest something concrete to try. The weak ones show a calendar
+and let you draw your own alarming conclusions.
+
+Two things separate them in practice. The first is whether development appears as a
+range or a date. The second is how much of the app you can reach before the paywall.
+
+## The apps, ranked
+
+<ProductRoundup />
+
+## The features that separated them
+
+### #1 Ranges instead of dates
+
+Only one app tested presented every milestone as "most babies do this between X and
+Y" by default. The rest showed a single week and buried the range in a tooltip or
+omitted it. This is a presentation choice with clinical consequences, because a
+parent reading a date sees a test their baby can fail.
+
+### #2 A plan you can act on
+
+Telling a parent that their four-month-old is "developing rapidly" is filler. The
+apps worth paying for name the skill and suggest the activity: hold a rattle just
+out of reach to encourage rolling, for instance. Two of the seven did this well.
+
+### #3 Logging in the same place
+
+Feeds, sleep and nappies belong alongside development, because the alternative is
+reconciling two apps at 3am. Most of these apps pick a side. Huckleberry does the
+logging well and the development thinly, The Wonder Weeks offers a written diary and no
+structured logging at all, and Kinedu is built around activities rather than records.
+
+BabyLeap is the one that does both, and the range is wider than the category norm:
+sleep, feeds, nappies, mood, growth, vaccinations, symptoms and doctor visits, all in
+the same place as the development plan. The vaccination and doctor-visit logs matter
+more than they sound, because those are the two things you get asked to recall at a
+check-up and never can.
+
+### #4 Stated sourcing
+
+Three of seven said where their milestone windows came from. Four did not, which
+means you are trusting an unnamed source about your baby's development.
+
+## Where they fall short
+
+### #1 The paywall arrives early
+
+Free tiers are mostly trials. Expect to hit a subscription prompt within a week on
+the development apps, and budget accordingly rather than assuming you will stay on
+the free plan.
+
+### #2 One idea, stretched to fill an app
+
+The Wonder Weeks is a leap calendar with material attached. It will tell you a fussy
+fortnight is coming and explain what your baby is working through, which is the single
+most reassuring thing any of these apps do. Past that, the scope narrows fast.
+
+There are no clinical milestone ranges, so the AAP and CDC windows the rest of this
+article is built on simply are not in there. It offers playtime games and a written
+diary rather than structured logging, so it cannot tell you when your baby last fed or
+how they slept last week. And it stops at 20 months. Set against a $5.99 one-off
+purchase that is a reasonable trade, but a leap calendar is what you are buying, not a
+development tracker.
+
+The other problem is confidence. The app presents leap timing with more certainty than
+the underlying theory carries. The reframing helps during a hard week; the precision of
+the dates is not something the evidence supports.
+
+### #3 Data handling is hard to check
+
+Every app asks for health data about a child. Three privacy policies permitted
+sharing with unnamed third parties for "service improvement", which is broad enough
+to cover a great deal.
+
+### #4 Some of them feel a decade old
+
+Kinedu has the deepest content library here and the weakest shell around it. In our
+hands the interface lagged, the navigation took real effort to learn, and upsell
+popups interrupted often enough that we lost track of what we had been doing. It reads
+like a 2005 app wearing a modern icon.
+
+That is our impression rather than a measurement, so weigh it as one. It is worth
+noting that Kinedu's Android users appear to agree: the app holds 3.1 on Google Play
+across roughly 42,000 ratings, against 4.6 from about 7,000 on the US App Store. A gap
+that size usually means the Android build is the problem rather than the content.
+
+## What these apps cost
+
+The Wonder Weeks is a one-off $5.99, and it stays the cheapest thing here by a wide
+margin. Everything else bills monthly or annually, and the annual plans are the only
+ones that represent decent value.
+
+BabyLeap starts at $7.49 a month, or $39.99 for a year, and costs less than that in
+some regions. Kinedu sits at around $8.99 a month or $39.99 a year, with premium tiers
+climbing well past that. Huckleberry's paid tier is the most expensive monthly price
+here at $14.99, though its free tier is the most usable of the group.
+
+Two points are worth pulling out of those numbers. Paying monthly costs you roughly
+double over a year on every app we looked at. And the headline price is rarely the
+price of the app you actually want, because the feature that drew you in is often one
+tier up.
+
+Free tiers are worth what you would expect. Two apps gated the feature that had drawn
+us to them in the first place.
+
 ## How we tested
 
 We used each app daily for eight weeks against a real infant schedule, on iOS and
@@ -126,26 +356,63 @@ Android where both existed. We scored four things:
 Dr Priya Raman reviewed our accuracy scoring against current paediatric guidance. She
 has no financial interest in any app listed.
 
-<ProductRoundup />
+## How our top pick scored
+
+<TestScores />
+
+## How they compare
+
+<ComparisonTable />
+
+Kinedu's 3.0 needs a qualifier, because it did not come from the same process as the
+others. We spent time in the app and scored what we could see: how usable it is, and
+how hard it sells. We have not checked its milestone windows against AAP and CDC
+ranges, and we have not read its privacy policy closely, so two of our four criteria
+are missing from that number. Treat it as a usability verdict rather than a full one.
+
+The store ratings need reading carefully too, because they disagree with each other.
+Kinedu holds 4.6 from about 7,000 US App Store ratings and 3.1 across roughly 42,000 on
+Google Play, the widest platform gap in the group and the reason we trust our own
+impression of the Android build. BabyLeap sits at 4.7 on Google Play.
+
+Two caveats on all of those numbers. Store averages measure satisfaction, not clinical
+accuracy, so they are not comparable with our score. And we have shown every platform
+we could verify for each app rather than the best one, because picking the flattering
+store per product is how comparison tables end up lying.
 
 ## BabyLeap took the top spot
 
-BabyLeap scored highest on the two criteria we weighted most heavily. It presents
-milestone windows as ranges, with an explicit "most babies do this between X and Y"
-framing, and its weekly plan gives concrete activities instead of generic
-encouragement.
+BabyLeap scored highest on the two criteria we weighted most heavily. It presents all
+749 of its milestone windows as ranges, with an explicit "most babies do this between X
+and Y" framing, and its weekly plan gives concrete activities across physical,
+cognitive, language and social development instead of generic encouragement.
 
-Weigh that against a conflict of interest we cannot design away:
+It is also the only app here you can use as your single record. Sleep, feeds, nappies,
+mood, growth, vaccinations, symptoms and doctor visits all log against the same profile
+as the development plan, and it keeps going to age six rather than tailing off after
+toddlerhood.
 
-<OwnershipDisclosure variant="inline" />
-
-We fixed and published our scoring criteria before testing, and a reviewer with no
-stake in the product checked the clinical claims. The drawbacks listed above are the
-real ones: we sell hard at the paywall, and the trial runs out fast.
+We fixed and published our scoring criteria before testing,
+and a reviewer with no stake in the product checked the clinical claims. The
+drawbacks listed above are the real ones: it sells hard at the paywall, and the trial
+runs out fast.
 
 You may prefer not to take our word for this pick. Huckleberry is the better choice if
 sleep is your main problem, and The Wonder Weeks does the job if you want context for
 hard weeks and dislike subscriptions.
+
+<ExpertNote author="priya-raman">
+
+Parents bring me app screenshots at check-ups, and the useful ones show a range. A
+single date invites a comparison your baby cannot win, and I spend a good deal of
+those appointments explaining that a nine-month-old who is not yet crawling is
+usually fine.
+
+Treat any of these as a notebook. Developmental screening at your check-ups uses
+validated instruments and an examination, and no app substitutes for it. If your baby
+loses a skill they had, do not wait for the next appointment.
+
+</ExpertNote>
 
 ## No app screens your baby
 

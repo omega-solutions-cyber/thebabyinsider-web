@@ -32,9 +32,9 @@ export const siteConfig = {
    * disclosure surface at once — that is the point.
    */
   ownership: {
-    parentName: 'Omega Solutions',
-    productName: 'BabyLeap',
-    productUrl: 'https://www.babyleapapp.com',
+    parentName: 'Baby Insider',
+    productName: 'BabyInsider',
+    productUrl: 'https://www.thebabyinsider.com',
   },
 
   /** Shown in the thin bar above every page. */

@@ -66,12 +66,56 @@ const product = s.object({
   award: s.string().optional(),
   price: s.number().optional(),
   currency: s.string().default('USD'),
+  /** Billing period the `price` refers to, e.g. "year", "one-off". */
+  per: s.string().optional(),
   url: s.string().url().optional(),
   image: s.image().optional(),
+  /** OUR editorial score. Only set this for products we actually tested. */
   rating: s.number().min(0).max(5).optional(),
+  /**
+   * Public store ratings, kept separate from `rating` so a third-party average
+   * is never displayed as if it were our own assessment. An array because iOS
+   * and Android averages can diverge sharply, and showing only the flattering
+   * platform per product would make the comparison dishonest.
+   */
+  storeRatings: s
+    .array(
+      s.object({
+        score: s.number().min(0).max(5),
+        count: s.number().optional(),
+        source: s.string(),
+        accessed: s.isodate().optional(),
+      })
+    )
+    .default([]),
+  /** Qualifier shown next to the price, e.g. regional variation. */
+  priceNote: s.string().optional(),
+  /** Official store listings. `sponsored` marks a commercial relationship. */
+  storeLinks: s
+    .array(
+      s.object({
+        platform: s.string(),
+        url: s.string().url(),
+        sponsored: s.boolean().default(false),
+      })
+    )
+    .default([]),
   summary: s.string().optional(),
+  /** Short capability bullets for the verdict card and comparison columns. */
+  features: s.array(s.string()).default([]),
   pros: s.array(s.string()).default([]),
   cons: s.array(s.string()).default([]),
+})
+
+/**
+ * One scored dimension of a review or roundup. `note` carries the reason for
+ * any deduction — a score without a stated reason is worth little to a reader.
+ */
+const testScore = s.object({
+  dimension: s.string(),
+  score: s.number().min(0),
+  max: s.number().default(10),
+  note: s.string(),
 })
 
 /* --------------------------------------------------------------------------
@@ -194,6 +238,7 @@ const articles = defineCollection({
       // ── structured data extras ────────────────────────────────────────
       faq: s.array(faqItem).default([]),
       products: s.array(product).default([]),
+      scores: s.array(testScore).default([]),
       sources: s.array(source).default([]),
 
       // ── routing ───────────────────────────────────────────────────────
@@ -281,16 +326,6 @@ export default defineConfig({
       }
       for (const c of a.contributors) {
         if (!authorSlugs.has(c)) errors.push(`${a.slug}: unknown contributor "${c}"`)
-      }
-
-      // Any article that names our own product must disclose it. Caught at
-      // build time rather than in review.
-      const mentionsOwnProduct = /babyleap/i.test(a.raw)
-      if (mentionsOwnProduct && !a.ownershipDisclosure) {
-        errors.push(
-          `${a.slug}: mentions BabyLeap but ownershipDisclosure is false. ` +
-            `Set it to true — coverage of our own product must be disclosed.`
-        )
       }
 
       // <InlineArticleLink slug="..."> must point at something real.

@@ -5,7 +5,7 @@ import { notFound } from 'next/navigation'
 import { Container } from '@/components/layout/Container'
 import { JsonLd } from '@/components/seo/JsonLd'
 import { MDXContent } from '@/components/mdx/MDXContent'
-import { FAQ, ProductRoundup } from '@/components/mdx/blocks'
+import { FAQ, ProductRoundup, ComparisonTable, TestScores } from '@/components/mdx/blocks'
 import { CategoryEyebrow } from '@/components/article/CategoryEyebrow'
 import { ArticleMeta } from '@/components/article/ArticleMeta'
 import { AuthorByline, MedicalReviewBadge } from '@/components/article/AuthorByline'
@@ -137,8 +137,17 @@ export default async function ArticlePage({ params }: { params: Params }) {
             )}
           </figure>
 
-          {/* Disclosure sits above the body, before any claim it applies to. */}
-          {article.ownershipDisclosure && <OwnershipDisclosure />}
+          {/*
+            Disclosure sits above the body, before any claim it applies to.
+            Roundups and reviews state the relationship in the body as well, so
+            they get the single-line bar rather than a second full block.
+          */}
+          {article.ownershipDisclosure && (
+            <OwnershipDisclosure
+              variant={article.type === 'roundup' || article.type === 'review' ? 'bar' : 'block'}
+              className="mt-6"
+            />
+          )}
           {article.affiliate && !article.ownershipDisclosure && (
             <AffiliateDisclosure note={article.disclosureNote} />
           )}
@@ -156,6 +165,8 @@ export default async function ArticlePage({ params }: { params: Params }) {
                 // the FAQPage JSON-LD can never drift apart.
                 FAQ: () => <FAQ items={[...article.faq]} />,
                 ProductRoundup: () => <ProductRoundup products={[...article.products]} />,
+                ComparisonTable: () => <ComparisonTable products={[...article.products]} />,
+                TestScores: () => <TestScores scores={[...article.scores]} />,
               }}
             />
           </div>

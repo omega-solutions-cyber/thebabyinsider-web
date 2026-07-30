@@ -14,10 +14,30 @@ export function OwnershipDisclosure({
   variant = 'block',
   className,
 }: {
-  variant?: 'block' | 'inline'
+  variant?: 'block' | 'inline' | 'bar'
   className?: string
 }) {
   const { parentName, productName } = siteConfig.ownership
+
+  // Single-line treatment for commercial articles where the relationship is
+  // already stated in the body. Compact, but above anything it qualifies.
+  if (variant === 'bar') {
+    return (
+      <p
+        className={cn(
+          'text-ink-muted border-rule border-b pb-3 text-[0.78rem] leading-relaxed',
+          className
+        )}
+      >
+        <strong className="text-ink font-semibold">Ownership disclosure:</strong> {productName} is
+        made by {parentName}, which publishes {siteConfig.name}, and we earn money if you subscribe.{' '}
+        <Link href="/how-we-evaluate" className="hover:text-accent underline underline-offset-2">
+          How we evaluate
+        </Link>
+        .
+      </p>
+    )
+  }
 
   if (variant === 'inline') {
     return (

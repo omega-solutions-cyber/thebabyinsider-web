@@ -1,6 +1,13 @@
 import Link from 'next/link'
 import type { AnchorHTMLAttributes, ComponentProps } from 'react'
-import { Callout, KeyTakeaways, InlineArticleLink, BabyLeapPromo, ProductCard } from './blocks'
+import {
+  Callout,
+  KeyTakeaways,
+  InlineArticleLink,
+  BabyLeapPromo,
+  ProductCard,
+  ExpertNote,
+} from './blocks'
 import {
   OwnershipDisclosure,
   AffiliateDisclosure,
@@ -37,8 +44,9 @@ export const mdxComponents = {
   InlineArticleLink,
   BabyLeapPromo,
   ProductCard,
+  ExpertNote,
   OwnershipDisclosure,
   AffiliateDisclosure,
-  // FAQ and ProductRoundup are bound to the article's frontmatter by the
-  // article page, so writers use them with no props.
+  // FAQ, ProductRoundup, ComparisonTable and TestScores are bound to the
+  // article's frontmatter by the article page, so writers use them with no props.
 }

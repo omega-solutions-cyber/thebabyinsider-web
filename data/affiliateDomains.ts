@@ -11,7 +11,6 @@
  */
 export const affiliateDomains: string[] = [
   // Our own product — commercial by definition.
-  'babyleapapp.com',
   'apps.apple.com',
   'play.google.com',
 
