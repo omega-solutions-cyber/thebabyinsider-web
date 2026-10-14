@@ -302,7 +302,10 @@ export function TestScores({
 
       <dl className="mt-4 space-y-4">
         {scores.map((s) => (
-          <div key={s.dimension} className="border-rule/60 border-t pt-3 first:border-t-0 first:pt-0">
+          <div
+            key={s.dimension}
+            className="border-rule/60 border-t pt-3 first:border-t-0 first:pt-0"
+          >
             <dt className="flex flex-wrap items-baseline justify-between gap-x-3">
               <span className="text-ink font-display text-[1rem] font-semibold">{s.dimension}</span>
               <span className="text-accent font-sans text-[0.95rem] font-bold tabular-nums">
@@ -352,7 +355,7 @@ export function ComparisonTable({
                     {winnerLabel}
                   </span>
                 )}
-                <span className="text-ink block font-display text-[1rem] font-semibold">
+                <span className="text-ink font-display block text-[1rem] font-semibold">
                   {p.name}
                 </span>
               </th>
@@ -514,7 +517,7 @@ export function ExpertNote({
 /* -------------------------------------------------------------- AppDownload */
 
 /**
- * Compact store-download block for repeat placement inside an article.
+ * Compact funnel CTA block for repeat placement inside an article.
  *
  * Like BabyLeapPromo, it renders its own disclosure and offers no prop to
  * suppress it — a placement that sends readers to our paid product always says
@@ -522,37 +525,21 @@ export function ExpertNote({
  * appear more than once without the page turning into a disclosure sandwich.
  */
 export function AppDownload({ headline }: { headline?: string }) {
-  const { productName, appStoreUrl, playStoreUrl } = siteConfig.ownership
-  const stores = [
-    { platform: 'the App Store', url: appStoreUrl },
-    { platform: 'Google Play', url: playStoreUrl },
-  ].filter((s) => Boolean(s.url))
-
-  if (stores.length === 0) return null
+  const { productName, funnelUrl } = siteConfig.ownership
 
   return (
     <aside className="border-rule bg-surface rounded-card my-8 border p-5">
       <p className="text-ink font-display text-[1.05rem] font-semibold">
         {headline ?? `Get ${productName}`}
       </p>
-      <div className="mt-3.5 flex flex-wrap items-center gap-2.5">
-        {stores.map((s, i) => (
-          <a
-            key={s.platform}
-            href={s.url}
-            target="_blank"
-            rel="sponsored nofollow noopener noreferrer"
-            className={cn(
-              'rounded-pill inline-block px-5 py-2.5 text-[0.8rem] font-bold transition-colors',
-              i === 0
-                ? 'bg-accent hover:bg-accent-dark text-white'
-                : 'border-rule text-ink hover:border-accent hover:text-accent border'
-            )}
-          >
-            Get it on {s.platform}
-          </a>
-        ))}
-      </div>
+      <a
+        href={funnelUrl}
+        target="_blank"
+        rel="sponsored nofollow noopener noreferrer"
+        className="bg-accent hover:bg-accent-dark rounded-pill mt-3.5 inline-block px-5 py-2.5 text-[0.8rem] font-bold text-white transition-colors"
+      >
+        Take the free quiz
+      </a>
       <OwnershipDisclosure variant="bar" className="mt-4 border-t border-b-0 pt-3 pb-0" />
     </aside>
   )
@@ -566,7 +553,7 @@ export function AppDownload({ headline }: { headline?: string }) {
  * site without the relationship being stated next to it.
  */
 export function BabyLeapPromo({ headline, body }: { headline?: string; body?: string }) {
-  const { productName, productUrl } = siteConfig.ownership
+  const { productName, funnelUrl } = siteConfig.ownership
 
   return (
     <aside className="my-10">
@@ -574,7 +561,7 @@ export function BabyLeapPromo({ headline, body }: { headline?: string; body?: st
         <p className="text-ink-muted font-sans text-[0.68rem] font-bold tracking-[0.1em] uppercase">
           From our team
         </p>
-        <h2 className="text-ink mt-2 font-display text-xl font-semibold">
+        <h2 className="text-ink font-display mt-2 text-xl font-semibold">
           {headline ?? `Track your baby's development with ${productName}`}
         </h2>
         <p className="text-ink-muted mt-2.5 text-[0.9rem] leading-relaxed">
@@ -583,7 +570,7 @@ export function BabyLeapPromo({ headline, body }: { headline?: string; body?: st
         </p>
         <p className="mt-4">
           <a
-            href={productUrl}
+            href={funnelUrl}
             target="_blank"
             rel="sponsored nofollow noopener noreferrer"
             className="bg-accent hover:bg-accent-dark rounded-pill inline-block px-6 py-2.5 text-[0.82rem] font-bold text-white transition-colors"

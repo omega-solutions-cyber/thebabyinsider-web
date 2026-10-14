@@ -35,9 +35,8 @@ export const siteConfig = {
     parentName: 'Baby Insider',
     productName: 'BabyInsider',
     productUrl: 'https://www.thebabyinsider.com',
-    /** Official store listings, used by the AppDownload block. */
-    appStoreUrl: 'https://apps.apple.com/us/app/baby-leap-milestone-tracker/id6472646241',
-    playStoreUrl: 'https://play.google.com/store/apps/details?id=com.omega.babyleap',
+    /** Web funnel entry (same target as the babyleapapp.com homepage CTAs); every app CTA links here. */
+    funnelUrl: 'https://babyleapapp.com/quiz?question=1',
   },
 
   /** Shown in the thin bar above every page. */
