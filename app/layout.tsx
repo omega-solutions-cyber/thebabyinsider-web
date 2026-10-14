@@ -9,6 +9,7 @@ import { SiteFooter } from '@/components/layout/SiteFooter'
 import { siteConfig } from '@/data/siteConfig'
 import { JsonLd } from '@/components/seo/JsonLd'
 import { rootGraph } from '@/lib/schema'
+import { GoogleTag } from '@/components/analytics/GoogleTag'
 
 // Two families, self-hosted by next/font with automatic metric-compatible
 // fallbacks so the swap costs no layout shift.
@@ -89,6 +90,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </main>
         <SiteFooter />
         <SpeedInsights />
+        <GoogleTag />
       </body>
     </html>
   )
