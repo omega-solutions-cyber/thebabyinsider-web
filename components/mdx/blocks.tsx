@@ -28,7 +28,7 @@ export function Callout({
   const style = calloutStyles[type] ?? calloutStyles.info
   return (
     <aside className={cn('rounded-card my-7 border-l-[3px] p-4 sm:p-5', style.border, style.bg)}>
-      <p className="text-ink-muted font-sans text-[0.68rem] font-bold tracking-[0.1em] uppercase">
+      <p className="text-ink-muted font-sans text-[0.68rem] font-bold uppercase tracking-[0.1em]">
         {title ?? style.label}
       </p>
       <div className="mt-2 [&>*:first-child]:mt-0 [&>*:last-child]:mb-0 [&>p]:my-2 [&>p]:text-[0.92rem] [&>p]:leading-relaxed">
@@ -50,7 +50,7 @@ export function KeyTakeaways({
 }) {
   return (
     <aside className="border-rule bg-surface rounded-card my-8 border p-5 sm:p-6">
-      <h2 className="text-accent font-sans text-[0.72rem] font-bold tracking-[0.12em] uppercase">
+      <h2 className="text-accent font-sans text-[0.72rem] font-bold uppercase tracking-[0.12em]">
         {title}
       </h2>
       <div className="mt-3 [&_li]:mt-2 [&_li]:text-[0.92rem] [&_li]:leading-relaxed [&_ul]:list-disc [&_ul]:pl-5">
@@ -83,7 +83,7 @@ export function FAQ({
       </h2>
       <div className="border-rule mt-4 border-t">
         {items.map((item) => (
-          <details key={item.q} className="group border-rule border-b">
+          <details key={item.q} className="border-rule group border-b">
             <summary className="text-ink hover:text-accent flex cursor-pointer list-none items-center justify-between gap-4 py-4 text-[0.95rem] font-bold marker:hidden">
               {item.q}
               <svg
@@ -129,7 +129,7 @@ export function ProductCard({ product }: { product: Product }) {
           {product.name}
         </h3>
         {product.award && (
-          <span className="bg-accent px-2.5 py-1 text-[0.62rem] font-bold tracking-[0.08em] text-white uppercase">
+          <span className="bg-accent px-2.5 py-1 text-[0.62rem] font-bold uppercase tracking-[0.08em] text-white">
             {product.award}
           </span>
         )}
@@ -165,7 +165,7 @@ export function ProductCard({ product }: { product: Product }) {
       <div className="mt-4 grid gap-4 sm:grid-cols-2">
         {product.pros.length > 0 && (
           <div>
-            <h4 className="text-cat-milestones text-[0.68rem] font-bold tracking-[0.1em] uppercase">
+            <h4 className="text-cat-milestones text-[0.68rem] font-bold uppercase tracking-[0.1em]">
               Pros
             </h4>
             <ul className="mt-2 space-y-1.5">
@@ -179,7 +179,7 @@ export function ProductCard({ product }: { product: Product }) {
         )}
         {product.cons.length > 0 && (
           <div>
-            <h4 className="text-cat-health text-[0.68rem] font-bold tracking-[0.1em] uppercase">
+            <h4 className="text-cat-health text-[0.68rem] font-bold uppercase tracking-[0.1em]">
               Cons
             </h4>
             <ul className="mt-2 space-y-1.5">
@@ -222,7 +222,12 @@ export function ProductCard({ product }: { product: Product }) {
             <a
               href={product.url}
               target="_blank"
-              rel="sponsored nofollow noopener noreferrer"
+              // Only our own product carries a commercial relationship.
+              rel={
+                product.url === siteConfig.ownership.funnelUrl
+                  ? 'sponsored nofollow noopener noreferrer'
+                  : 'nofollow noopener noreferrer'
+              }
               className="bg-ink text-paper hover:bg-accent rounded-pill inline-block px-6 py-2.5 text-[0.82rem] font-bold transition-colors"
             >
               Visit {product.name}
@@ -292,7 +297,7 @@ export function TestScores({
   return (
     <section className="border-rule bg-surface rounded-card my-10 border p-5 sm:p-6">
       <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-        <h2 className="text-accent font-sans text-[0.72rem] font-bold tracking-[0.12em] uppercase">
+        <h2 className="text-accent font-sans text-[0.72rem] font-bold uppercase tracking-[0.12em]">
           {title}
         </h2>
         <p className="text-ink-muted text-[0.78rem]">
@@ -351,7 +356,7 @@ export function ComparisonTable({
             {ordered.map((p, i) => (
               <th key={p.name} scope="col" className="px-3 py-2 text-left align-bottom">
                 {i === 0 && (
-                  <span className="bg-accent mb-1.5 inline-block px-2 py-0.5 text-[0.58rem] font-bold tracking-[0.08em] text-white uppercase">
+                  <span className="bg-accent mb-1.5 inline-block px-2 py-0.5 text-[0.58rem] font-bold uppercase tracking-[0.08em] text-white">
                     {winnerLabel}
                   </span>
                 )}
@@ -492,7 +497,7 @@ export function ExpertNote({
 
   return (
     <aside className="border-cat-health/40 bg-cat-health/5 rounded-card my-10 border-l-[3px] p-5 sm:p-6">
-      <p className="text-ink-muted font-sans text-[0.68rem] font-bold tracking-[0.1em] uppercase">
+      <p className="text-ink-muted font-sans text-[0.68rem] font-bold uppercase tracking-[0.1em]">
         {title}
       </p>
       <div className="mt-3 [&>*:first-child]:mt-0 [&>*:last-child]:mb-0 [&>p]:my-2.5 [&>p]:text-[0.92rem] [&>p]:leading-relaxed">
@@ -528,19 +533,19 @@ export function AppDownload({ headline }: { headline?: string }) {
   const { productName, funnelUrl } = siteConfig.ownership
 
   return (
-    <aside className="border-rule bg-surface rounded-card my-8 border p-5">
-      <p className="text-ink font-display text-[1.05rem] font-semibold">
+    <aside className="border-accent bg-surface rounded-card my-10 border-2 p-6 md:p-7">
+      <p className="text-ink font-display text-[1.25rem] font-semibold leading-snug md:text-[1.4rem]">
         {headline ?? `Get ${productName}`}
       </p>
       <a
         href={funnelUrl}
         target="_blank"
         rel="sponsored nofollow noopener noreferrer"
-        className="bg-accent hover:bg-accent-dark rounded-pill mt-3.5 inline-block px-5 py-2.5 text-[0.8rem] font-bold text-white transition-colors"
+        className="bg-accent hover:bg-accent-dark rounded-pill mt-5 block w-full px-7 py-4 text-center text-base font-bold text-white shadow-sm transition-colors sm:inline-block sm:w-auto"
       >
-        Take the free quiz
+        Take the free quiz →
       </a>
-      <OwnershipDisclosure variant="bar" className="mt-4 border-t border-b-0 pt-3 pb-0" />
+      <OwnershipDisclosure variant="bar" className="mt-4 border-b-0 border-t pb-0 pt-3" />
     </aside>
   )
 }
@@ -558,7 +563,7 @@ export function BabyLeapPromo({ headline, body }: { headline?: string; body?: st
   return (
     <aside className="my-10">
       <div className="border-rule bg-surface rounded-card border p-6">
-        <p className="text-ink-muted font-sans text-[0.68rem] font-bold tracking-[0.1em] uppercase">
+        <p className="text-ink-muted font-sans text-[0.68rem] font-bold uppercase tracking-[0.1em]">
           From our team
         </p>
         <h2 className="text-ink font-display mt-2 text-xl font-semibold">

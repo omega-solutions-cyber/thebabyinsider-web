@@ -143,7 +143,11 @@ function productNodes(article: Article): Node | null {
       '@type': 'ListItem',
       position: p.rank ?? i + 1,
       item: {
-        '@type': 'Product',
+        // Every reviewed product is an app; Product + Offer gets validated as a
+        // merchant listing (requires image, shipping, returns) and fails.
+        '@type': 'SoftwareApplication',
+        applicationCategory: 'LifestyleApplication',
+        operatingSystem: 'iOS, Android',
         name: p.name,
         ...(p.image ? { image: absoluteUrl(p.image.src) } : {}),
         ...(p.summary ? { description: p.summary } : {}),
