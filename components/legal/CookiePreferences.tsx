@@ -1,12 +1,24 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useMemo, useState, useSyncExternalStore } from 'react'
 
 const STORAGE_KEY = 'tbi.cookie-consent'
 
 type Prefs = { necessary: true; analytics: boolean; advertising: boolean }
 
 const DEFAULTS: Prefs = { necessary: true, analytics: false, advertising: false }
+
+// Read once per render; no subscription, matching the old read-on-mount behaviour.
+const noSubscribe = () => () => {}
+const readStored = () => {
+  try {
+    return localStorage.getItem(STORAGE_KEY)
+  } catch {
+    return null // Storage unavailable — fall back to defaults.
+  }
+}
+// undefined on the server and during hydration = not ready yet.
+const readStoredOnServer = () => undefined
 
 const CATEGORIES = [
   {
@@ -41,22 +53,21 @@ const CATEGORIES = [
  * and ad scripts actually gate on it.
  */
 export function CookiePreferences() {
-  const [prefs, setPrefs] = useState<Prefs>(DEFAULTS)
-  const [saved, setSaved] = useState(false)
-  const [ready, setReady] = useState(false)
-
-  useEffect(() => {
+  const stored = useSyncExternalStore(noSubscribe, readStored, readStoredOnServer)
+  const ready = stored !== undefined
+  const storedPrefs = useMemo<Prefs>(() => {
     try {
-      const stored = localStorage.getItem(STORAGE_KEY)
-      if (stored) setPrefs({ ...DEFAULTS, ...JSON.parse(stored) })
+      return stored ? { ...DEFAULTS, ...JSON.parse(stored) } : DEFAULTS
     } catch {
-      // Corrupt or unavailable storage — fall back to defaults.
+      return DEFAULTS // Corrupt storage — fall back to defaults.
     }
-    setReady(true)
-  }, [])
+  }, [stored])
+  const [chosen, setChosen] = useState<Prefs | null>(null)
+  const prefs = chosen ?? storedPrefs
+  const [saved, setSaved] = useState(false)
 
   function save(next: Prefs) {
-    setPrefs(next)
+    setChosen(next)
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(next))
     } catch {

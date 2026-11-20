@@ -8,13 +8,13 @@ import { siteConfig } from '@/data/siteConfig'
 type NavCategory = { slug: string; name: string; color: string }
 
 export function MobileNav({ categories }: { categories: NavCategory[] }) {
-  const [open, setOpen] = useState(false)
+  const pathname = usePathname()
+  // Remember the path the drawer was opened on; navigating anywhere else closes it.
+  const [openOn, setOpenOn] = useState<string | null>(null)
+  const open = openOn === pathname
+  const setOpen = (next: boolean) => setOpenOn(next ? pathname : null)
   const panelRef = useRef<HTMLDivElement>(null)
   const triggerRef = useRef<HTMLButtonElement>(null)
-  const pathname = usePathname()
-
-  // Close on navigation.
-  useEffect(() => setOpen(false), [pathname])
 
   // Lock scroll, trap focus, close on Escape.
   useEffect(() => {
@@ -26,7 +26,7 @@ export function MobileNav({ categories }: { categories: NavCategory[] }) {
 
     const onKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
-        setOpen(false)
+        setOpenOn(null)
         return
       }
       if (e.key !== 'Tab' || !panelRef.current) return

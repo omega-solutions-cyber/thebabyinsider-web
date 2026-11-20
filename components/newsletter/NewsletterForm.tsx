@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useState, type FormEvent } from 'react'
+import { useEffect, useRef, useState, type FormEvent } from 'react'
 
 type Status = 'idle' | 'pending' | 'success' | 'error'
 
@@ -18,7 +18,10 @@ export function NewsletterForm({
 }) {
   const [status, setStatus] = useState<Status>('idle')
   const [message, setMessage] = useState('')
-  const mountedAt = useRef(Date.now())
+  const mountedAt = useRef(0)
+  useEffect(() => {
+    mountedAt.current = Date.now()
+  }, [])
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()

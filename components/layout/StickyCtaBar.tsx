@@ -22,20 +22,28 @@ declare global {
  */
 export function StickyCtaBar({ text, button }: { text: string; button: string }) {
   useEffect(() => {
-    const sent = new Set<number>()
-    const onScroll = () => {
+    // Every 10% threshold fires once per page view; the highest one reached so
+    // far is all we need to track, and measuring runs at most once per frame.
+    let sentUpTo = 0
+    let frame = 0
+    const measure = () => {
+      frame = 0
       const max = document.documentElement.scrollHeight - window.innerHeight
       const pct = max > 0 ? (window.scrollY / max) * 100 : 100
-      for (const mark of [25, 50, 75, 100]) {
-        if (pct >= mark - 0.5 && !sent.has(mark)) {
-          sent.add(mark)
-          window.gtag?.('event', 'scroll_depth', { percent_scrolled: mark })
-        }
+      for (let mark = sentUpTo + 10; mark <= 100 && pct >= mark - 0.5; mark += 10) {
+        sentUpTo = mark
+        window.gtag?.('event', 'scroll_depth', { percent_scrolled: mark })
       }
-      if (sent.size === 4) window.removeEventListener('scroll', onScroll)
+      if (sentUpTo === 100) window.removeEventListener('scroll', onScroll)
+    }
+    const onScroll = () => {
+      if (!frame) frame = requestAnimationFrame(measure)
     }
     window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+      cancelAnimationFrame(frame)
+    }
   }, [])
 
   const dismiss = () => {
