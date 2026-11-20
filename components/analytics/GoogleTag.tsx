@@ -45,13 +45,16 @@ document.addEventListener('click', function (e) {
   var a = e.target instanceof Element && e.target.closest('a[href]');
   if (!a || a.host === location.host || !/^https?:$/.test(a.protocol)) return;
   var isFunnel = a.hostname === funnelHost || a.hostname === 'www.' + funnelHost;
+  // data-cta-location tells placements apart (e.g. the sticky bar vs in-article blocks).
+  var loc = a.getAttribute('data-cta-location') || 'in_content';
   gtag('event', 'outbound_click', {
     link_url: a.href,
     link_domain: a.hostname,
     link_text: (a.textContent || '').trim().slice(0, 100),
     funnel: isFunnel,
+    cta_location: loc,
   });
-  if (isFunnel) gtag('event', 'funnel_click', { link_url: a.href });
+  if (isFunnel) gtag('event', 'funnel_click', { link_url: a.href, cta_location: loc });
 }, true);
 `}
       </Script>

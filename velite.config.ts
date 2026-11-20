@@ -234,6 +234,8 @@ const articles = defineCollection({
       ownershipDisclosure: s.boolean().default(false),
       sponsored: s.boolean().default(false),
       disclosureNote: s.string().optional(),
+      /** Sticky funnel bar under the header; set only on paid-traffic landing articles. */
+      stickyCta: s.object({ text: s.string(), button: s.string() }).optional(),
 
       // ── structured data extras ────────────────────────────────────────
       faq: s.array(faqItem).default([]),

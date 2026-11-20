@@ -21,6 +21,7 @@ import {
 } from '@/components/disclosure/OwnershipDisclosure'
 import { NewsletterBand } from '@/components/newsletter/NewsletterBand'
 import { AdSlot } from '@/components/home/AdSlot'
+import { StickyCtaBar } from '@/components/layout/StickyCtaBar'
 
 import {
   articles,
@@ -88,6 +89,18 @@ export default async function ArticlePage({ params }: { params: Params }) {
   return (
     <>
       <JsonLd data={articleGraph(article)} />
+
+      {article.stickyCta && (
+        <>
+          <StickyCtaBar text={article.stickyCta.text} button={article.stickyCta.button} />
+          {/* Runs before paint so a bar dismissed earlier this session never flashes. Key matches StickyCtaBar. */}
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `try{sessionStorage.getItem('stickyCta')&&document.getElementById('sticky-cta').setAttribute('hidden','')}catch(e){}`,
+            }}
+          />
+        </>
+      )}
 
       <Container width="wide" className="pt-6">
         <Breadcrumbs
