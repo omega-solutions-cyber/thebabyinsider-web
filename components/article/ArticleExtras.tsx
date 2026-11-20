@@ -3,6 +3,7 @@ import type { Article } from '@/lib/content'
 import { ArticleCard } from './ArticleCard'
 import { formatDate } from '@/lib/format'
 import { cn } from '@/lib/cn'
+import { isAffiliateHost } from '@/data/affiliateDomains'
 
 export function Breadcrumbs({ trail }: { trail: { name: string; url?: string }[] }) {
   return (
@@ -49,7 +50,11 @@ export function SourcesList({ sources }: { sources: Article['sources'] }) {
               <a
                 href={s.url}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel={
+                  isAffiliateHost(new URL(s.url).hostname)
+                    ? 'sponsored nofollow noopener noreferrer'
+                    : 'noopener noreferrer'
+                }
                 className="text-ink hover:text-accent underline underline-offset-2"
               >
                 {s.title}
