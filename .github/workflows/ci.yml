@@ -17,6 +17,8 @@ jobs:
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - run: pnpm lint
+      # .velite/ is gitignored; generate #site/content so tsc can resolve it.
+      - run: pnpm content
       - run: pnpm typecheck
       # Content validation runs here: unknown authors, broken internal links and
       # missing ownership disclosures fail this step.
