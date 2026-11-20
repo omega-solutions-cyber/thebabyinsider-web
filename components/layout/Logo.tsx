@@ -24,7 +24,7 @@ export function Logo({
     >
       <span
         aria-hidden="true"
-        className="bg-accent grid h-9 w-9 shrink-0 place-items-center font-sans text-[1.4rem] leading-none font-black text-white"
+        className="bg-accent grid h-9 w-9 shrink-0 place-items-center font-sans text-[1.4rem] font-black leading-none text-white"
       >
         b
       </span>
@@ -32,7 +32,7 @@ export function Logo({
         <span
           aria-hidden="true"
           className={cn(
-            'font-sans text-[0.68rem] leading-[1.15] font-black tracking-[0.08em] uppercase',
+            'font-sans text-[0.68rem] font-black uppercase leading-[1.15] tracking-[0.08em]',
             tone === 'paper' ? 'text-paper' : 'text-ink'
           )}
         >

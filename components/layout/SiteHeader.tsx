@@ -24,7 +24,7 @@ export function SiteHeader() {
           <CategoryNav className="hidden lg:flex" />
 
           <div className="flex items-center gap-1">
-            <span className="border-rule text-ink-muted hidden items-center gap-1 border-r pr-3 text-[0.7rem] font-bold tracking-[0.06em] uppercase lg:flex">
+            <span className="border-rule text-ink-muted hidden items-center gap-1 border-r pr-3 text-[0.7rem] font-bold uppercase tracking-[0.06em] lg:flex">
               EN
             </span>
             <SearchTrigger />

@@ -9,10 +9,10 @@ export default function NotFound() {
 
   return (
     <Container width="wide" className="py-14">
-      <p className="text-accent font-sans text-[0.7rem] font-bold tracking-[0.12em] uppercase">
+      <p className="text-accent font-sans text-[0.7rem] font-bold uppercase tracking-[0.12em]">
         404
       </p>
-      <h1 className="text-ink mt-2 font-display text-[2.1rem] font-semibold sm:text-[2.3rem]">
+      <h1 className="text-ink font-display mt-2 text-[2.1rem] font-semibold sm:text-[2.3rem]">
         We couldn&rsquo;t find that page
       </h1>
       <p className="text-ink-muted mt-3 max-w-[38rem] text-[0.95rem] leading-relaxed">

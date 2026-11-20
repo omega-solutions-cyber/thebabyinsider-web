@@ -46,85 +46,87 @@ export async function renderOgImage({
   const fonts = await loadFonts()
 
   return new ImageResponse(
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'space-between',
-        width: '100%',
-        height: '100%',
-        backgroundColor: '#FFFFFF',
-        padding: '64px 72px',
-        borderTop: `16px solid ${accent}`,
-      }}
-    >
-      <div style={{ display: 'flex', flexDirection: 'column' }}>
-        {eyebrow && (
+    (
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'space-between',
+          width: '100%',
+          height: '100%',
+          backgroundColor: '#FFFFFF',
+          padding: '64px 72px',
+          borderTop: `16px solid ${accent}`,
+        }}
+      >
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
+          {eyebrow && (
+            <div
+              style={{
+                display: 'flex',
+                fontSize: 24,
+                fontWeight: 700,
+                letterSpacing: 4,
+                textTransform: 'uppercase',
+                color: accent,
+                marginBottom: 24,
+              }}
+            >
+              {eyebrow}
+            </div>
+          )}
           <div
             style={{
               display: 'flex',
-              fontSize: 24,
+              fontSize: title.length > 70 ? 60 : 72,
               fontWeight: 700,
-              letterSpacing: 4,
-              textTransform: 'uppercase',
-              color: accent,
-              marginBottom: 24,
-            }}
-          >
-            {eyebrow}
-          </div>
-        )}
-        <div
-          style={{
-            display: 'flex',
-            fontSize: title.length > 70 ? 60 : 72,
-            fontWeight: 700,
-            lineHeight: 1.1,
-            color: '#16191C',
-            letterSpacing: -1,
-          }}
-        >
-          {title.length > 110 ? `${title.slice(0, 107)}…` : title}
-        </div>
-      </div>
-
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-        <div style={{ display: 'flex', alignItems: 'center' }}>
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              width: 56,
-              height: 56,
-              backgroundColor: accent,
-              color: '#fff',
-              fontSize: 40,
-              fontWeight: 700,
-              marginRight: 16,
-            }}
-          >
-            b
-          </div>
-          <div
-            style={{
-              display: 'flex',
-              fontSize: 26,
-              fontWeight: 700,
-              letterSpacing: 3,
-              textTransform: 'uppercase',
+              lineHeight: 1.1,
               color: '#16191C',
+              letterSpacing: -1,
             }}
           >
-            {siteConfig.name}
+            {title.length > 110 ? `${title.slice(0, 107)}…` : title}
           </div>
         </div>
 
-        {footnote && (
-          <div style={{ display: 'flex', fontSize: 22, color: '#545B62' }}>{footnote}</div>
-        )}
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+          <div style={{ display: 'flex', alignItems: 'center' }}>
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                width: 56,
+                height: 56,
+                backgroundColor: accent,
+                color: '#fff',
+                fontSize: 40,
+                fontWeight: 700,
+                marginRight: 16,
+              }}
+            >
+              b
+            </div>
+            <div
+              style={{
+                display: 'flex',
+                fontSize: 26,
+                fontWeight: 700,
+                letterSpacing: 3,
+                textTransform: 'uppercase',
+                color: '#16191C',
+              }}
+            >
+              {siteConfig.name}
+            </div>
+          </div>
+
+          {footnote && (
+            <div style={{ display: 'flex', fontSize: 22, color: '#545B62' }}>{footnote}</div>
+          )}
+        </div>
       </div>
-    </div>,
+    ),
     {
       ...OG_SIZE,
       fonts: [

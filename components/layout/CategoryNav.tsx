@@ -14,7 +14,7 @@ export function CategoryNav({ className }: { className?: string }) {
           <li key={c.slug}>
             <Link
               href={`/${c.slug}`}
-              className="text-ink hover:text-accent block py-2 text-[0.7rem] font-bold tracking-[0.06em] whitespace-nowrap uppercase transition-colors"
+              className="text-ink hover:text-accent block whitespace-nowrap py-2 text-[0.7rem] font-bold uppercase tracking-[0.06em] transition-colors"
             >
               {c.name}
             </Link>

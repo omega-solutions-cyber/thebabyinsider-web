@@ -69,10 +69,10 @@ export default async function AuthorPage({ params }: { params: Params }) {
             />
           )}
           <div>
-            <p className="text-accent font-sans text-[0.68rem] font-bold tracking-[0.12em] uppercase">
+            <p className="text-accent font-sans text-[0.68rem] font-bold uppercase tracking-[0.12em]">
               {author.role === 'medical-reviewer' ? 'Medical review team' : 'Editorial team'}
             </p>
-            <h1 className="text-ink mt-1.5 font-display text-[1.95rem] font-semibold sm:text-[2.3rem]">
+            <h1 className="text-ink font-display mt-1.5 text-[1.95rem] font-semibold sm:text-[2.3rem]">
               {author.name}
               {author.credentials && <span className="text-ink-muted">, {author.credentials}</span>}
             </h1>
@@ -99,7 +99,7 @@ export default async function AuthorPage({ params }: { params: Params }) {
 
         {author.education.length > 0 && (
           <section className="border-rule mt-8 border-t pt-6">
-            <h2 className="text-ink-muted font-sans text-[0.7rem] font-bold tracking-[0.12em] uppercase">
+            <h2 className="text-ink-muted font-sans text-[0.7rem] font-bold uppercase tracking-[0.12em]">
               Education
             </h2>
             <ul className="mt-3 space-y-1.5">

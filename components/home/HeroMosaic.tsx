@@ -29,7 +29,7 @@ function HeroPanel({
   return (
     <article
       className={cn(
-        'group bg-ink rounded-card relative overflow-hidden',
+        'bg-ink rounded-card group relative overflow-hidden',
         // Fixed ratios per breakpoint. Stacked on mobile, mosaic from md up.
         'aspect-[3/2] sm:aspect-[16/9] md:aspect-auto',
         isLead ? 'md:row-span-2' : ''
@@ -53,7 +53,7 @@ function HeroPanel({
         className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/5"
       />
 
-      {showNewBadge && <NewBadge className="absolute top-4 left-4 z-10" />}
+      {showNewBadge && <NewBadge className="absolute left-4 top-4 z-10" />}
 
       <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6 lg:p-7">
         <CategoryEyebrow slug={article.category} tone="paper" />
@@ -65,8 +65,8 @@ function HeroPanel({
           className={cn(
             'font-display mt-3 text-balance text-white',
             isLead
-              ? 'text-[1.6rem] leading-[1.08] font-extrabold tracking-[-0.025em] sm:text-[2rem] lg:text-[2.4rem]'
-              : 'text-[1.05rem] leading-[1.2] font-bold tracking-[-0.012em] lg:text-[1.25rem]'
+              ? 'text-[1.6rem] font-extrabold leading-[1.08] tracking-[-0.025em] sm:text-[2rem] lg:text-[2.4rem]'
+              : 'text-[1.05rem] font-bold leading-[1.2] tracking-[-0.012em] lg:text-[1.25rem]'
           )}
         >
           <Link href={article.permalink} className="after:absolute after:inset-0">
@@ -84,7 +84,7 @@ function HeroPanel({
 
         <p
           className={cn(
-            'inline-flex items-center gap-1.5 font-sans text-[0.65rem] font-bold tracking-[0.14em] text-white/80 uppercase',
+            'inline-flex items-center gap-1.5 font-sans text-[0.65rem] font-bold uppercase tracking-[0.14em] text-white/80',
             isLead ? 'mt-4' : 'mt-2.5'
           )}
         >

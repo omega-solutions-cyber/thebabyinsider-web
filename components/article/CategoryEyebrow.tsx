@@ -55,7 +55,7 @@ export function NewBadge({ className }: { className?: string }) {
   return (
     <span
       className={cn(
-        'rounded-pill bg-cta inline-block px-3.5 py-1.5 font-sans text-[0.68rem] font-bold tracking-[0.12em] text-white uppercase',
+        'rounded-pill bg-cta inline-block px-3.5 py-1.5 font-sans text-[0.68rem] font-bold uppercase tracking-[0.12em] text-white',
         className
       )}
     >

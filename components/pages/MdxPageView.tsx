@@ -48,7 +48,7 @@ export function MdxPageView({
 
       <Container className="mt-5 pb-6">
         <header className="border-rule border-b pb-6">
-          <h1 className="text-ink font-display text-[1.95rem] leading-tight font-semibold sm:text-[2.3rem]">
+          <h1 className="text-ink font-display text-[1.95rem] font-semibold leading-tight sm:text-[2.3rem]">
             {page.title}
           </h1>
           <p className="text-ink-muted mt-3 text-[0.95rem] leading-relaxed">{page.summary}</p>

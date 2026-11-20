@@ -51,7 +51,10 @@ function pngToIco(png, size) {
   return Buffer.concat([header, entry, png])
 }
 
-const render = (size) => sharp(Buffer.from(svg(size))).png().toBuffer()
+const render = (size) =>
+  sharp(Buffer.from(svg(size)))
+    .png()
+    .toBuffer()
 
 await writeFile(join(ROOT, 'app', 'icon.svg'), svg(64))
 await writeFile(join(ROOT, 'app', 'apple-icon.png'), await render(180))

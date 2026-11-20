@@ -37,13 +37,15 @@ export default async function TagPage({ params }: { params: Params }) {
   if (items.length === 0) notFound()
 
   return (
-    <Container width="wide" className="pt-6 pb-4">
+    <Container width="wide" className="pb-4 pt-6">
       <Breadcrumbs
         trail={[{ name: 'Home', url: '/' }, { name: 'Topics', url: '/tags' }, { name: tag }]}
       />
 
       <header className="border-rule mt-5 border-b pb-7">
-        <h1 className="text-ink font-display text-[2.1rem] font-semibold sm:text-[2.5rem]">{tag}</h1>
+        <h1 className="text-ink font-display text-[2.1rem] font-semibold sm:text-[2.5rem]">
+          {tag}
+        </h1>
         <p className="text-ink-muted mt-2 text-[0.9rem]">
           {items.length} article{items.length === 1 ? '' : 's'}
         </p>

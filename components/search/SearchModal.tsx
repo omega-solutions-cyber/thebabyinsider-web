@@ -145,7 +145,7 @@ export function SearchModal({ onClose }: { onClose: () => void }) {
           <button
             type="button"
             onClick={onClose}
-            className="text-ink-muted hover:text-accent shrink-0 text-[0.7rem] font-bold tracking-[0.06em] uppercase"
+            className="text-ink-muted hover:text-accent shrink-0 text-[0.7rem] font-bold uppercase tracking-[0.06em]"
           >
             Esc
           </button>
@@ -182,10 +182,10 @@ export function SearchModal({ onClose }: { onClose: () => void }) {
                     className="h-[3.25rem] w-[4.5rem] shrink-0 object-cover"
                   />
                   <span className="min-w-0">
-                    <span className="text-accent block text-[0.62rem] font-bold tracking-[0.08em] uppercase">
+                    <span className="text-accent block text-[0.62rem] font-bold uppercase tracking-[0.08em]">
                       {r.categoryName}
                     </span>
-                    <span className="text-ink mt-0.5 block text-sm leading-snug font-bold">
+                    <span className="text-ink mt-0.5 block text-sm font-bold leading-snug">
                       {r.title}
                     </span>
                   </span>

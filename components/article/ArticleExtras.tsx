@@ -38,7 +38,7 @@ export function SourcesList({ sources }: { sources: Article['sources'] }) {
     <section className="border-rule mt-12 border-t pt-6" aria-labelledby="sources-heading">
       <h2
         id="sources-heading"
-        className="text-ink-muted font-sans text-[0.72rem] font-bold tracking-[0.12em] uppercase"
+        className="text-ink-muted font-sans text-[0.72rem] font-bold uppercase tracking-[0.12em]"
       >
         Sources
       </h2>
@@ -104,7 +104,7 @@ export function TableOfContents({
     >
       <h2
         id="toc-heading"
-        className="text-ink-muted font-sans text-[0.68rem] font-bold tracking-[0.12em] uppercase"
+        className="text-ink-muted font-sans text-[0.68rem] font-bold uppercase tracking-[0.12em]"
       >
         On this page
       </h2>

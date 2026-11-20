@@ -19,7 +19,7 @@ export function AdSlot({
       aria-label="Advertisement"
       className={cn('flex flex-col items-center justify-start py-6', className)}
     >
-      <span className="text-ink-faint text-[0.65rem] tracking-[0.08em] uppercase">
+      <span className="text-ink-faint text-[0.65rem] uppercase tracking-[0.08em]">
         Advertisement
       </span>
       <div

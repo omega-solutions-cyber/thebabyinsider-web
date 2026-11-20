@@ -91,7 +91,7 @@ export function MobileNav({ categories }: { categories: NavCategory[] }) {
             className="bg-paper absolute inset-y-0 right-0 flex w-[min(20rem,85vw)] flex-col overflow-y-auto shadow-xl"
           >
             <div className="border-rule flex items-center justify-between border-b px-5 py-4">
-              <span className="text-ink-muted text-[0.7rem] font-bold tracking-[0.08em] uppercase">
+              <span className="text-ink-muted text-[0.7rem] font-bold uppercase tracking-[0.08em]">
                 Menu
               </span>
               <button
@@ -117,7 +117,7 @@ export function MobileNav({ categories }: { categories: NavCategory[] }) {
                   <li key={c.slug} className="border-rule/70 border-b last:border-0">
                     <Link
                       href={`/${c.slug}`}
-                      className="text-ink flex items-center gap-3 py-3.5 text-sm font-bold tracking-[0.04em] uppercase"
+                      className="text-ink flex items-center gap-3 py-3.5 text-sm font-bold uppercase tracking-[0.04em]"
                     >
                       <span
                         aria-hidden="true"

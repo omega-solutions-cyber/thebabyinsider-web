@@ -128,20 +128,54 @@ Paste as a single prompt; generate at `1536x1024`.
 
 ---
 
+## Batch 3 — advertorial (conversational turns)
+
+This one deliberately breaks the house style. It is the hero for a paid-traffic
+advertorial, so its job is to stop the scroll: more contrast, tighter framing,
+a moment of visible tension. Keep it photorealistic and believable. No glowing
+brains, neural-network overlays or fake scan imagery, because the article is
+built on real research and a sci-fi visual would make it look like clickbait.
+
+> Generate a photorealistic image, **1536x1024 (3:2 landscape)**.
+>
+> **11 — The moment of a conversational turn.** Extreme close-up, eye level, of
+> a roughly 18-month-old toddler mid-word: mouth open in a small "o", eyebrows
+> raised, eyes wide and locked on an adult just out of focus in the right
+> foreground (only the soft curve of the parent's cheek and jaw visible, leaning
+> in, clearly listening). The toddler's face is sharp and fills the centre third
+> of the frame. Dramatic single-source window light from the left, Rembrandt-
+> style, so one side of the toddler's face glows warm and the other falls into
+> deep shadow; the background drops to near-black. A faint catchlight in both
+> eyes. The feeling is electric and intimate, a split second you would normally
+> miss, like a still from a nature documentary rather than a stock photo. Rich
+> but natural skin tones, fine film grain, shallow depth of field (f/1.8 look).
+> Lower-left quadrant in soft shadow. No text, logos or watermarks.
+
+**Alternate, curiosity angle (11b).** Same lighting and framing rules, but the
+toddler sits on a kitchen floor wearing a plain cotton vest with a small, matte
+black audio recorder tucked into a chest pocket, the kind researchers used in
+the study. The toddler is pointing at something out of frame and looking back
+at an adult, mid-babble. The recorder should be noticeable but not explained:
+the reader's first question should be "why is that baby wearing a recorder?"
+
+Save as `content/articles/milestones/toddler-conversation-turns/hero.jpg`, then
+delete the placeholder `hero.webp` there and update `heroImage` and
+`heroImageAlt` in the frontmatter.
+
 ## File mapping
 
-| # | Save to |
-| --- | --- |
-| 1 | `content/articles/sleep/newborn-wake-windows/hero.jpg` |
-| 2 | `content/articles/sleep/four-month-sleep-regression/hero.jpg` |
-| 3 | `content/articles/milestones/when-do-babies-roll-over/hero.jpg` |
-| 4 | `content/articles/gear/best-baby-milestone-apps/hero.jpg` |
-| 5 | `content/articles/gear/babyleap-review/hero.jpg` |
-| 6 | `content/articles/feeding/starting-solids-first-foods/hero.jpg` |
-| 7 | `content/articles/newborn/aap-safe-sleep-update/hero.jpg` |
-| 8 | `content/articles/health/baby-fever-when-to-call/hero.jpg` |
-| 9 | `content/articles/parenting/parental-burnout-first-year/hero.jpg` |
-| 10 | `content/articles/pregnancy/third-trimester-checklist/hero.jpg` |
+| #   | Save to                                                           |
+| --- | ----------------------------------------------------------------- |
+| 1   | `content/articles/sleep/newborn-wake-windows/hero.jpg`            |
+| 2   | `content/articles/sleep/four-month-sleep-regression/hero.jpg`     |
+| 3   | `content/articles/milestones/when-do-babies-roll-over/hero.jpg`   |
+| 4   | `content/articles/gear/best-baby-milestone-apps/hero.jpg`         |
+| 5   | `content/articles/gear/babyleap-review/hero.jpg`                  |
+| 6   | `content/articles/feeding/starting-solids-first-foods/hero.jpg`   |
+| 7   | `content/articles/newborn/aap-safe-sleep-update/hero.jpg`         |
+| 8   | `content/articles/health/baby-fever-when-to-call/hero.jpg`        |
+| 9   | `content/articles/parenting/parental-burnout-first-year/hero.jpg` |
+| 10  | `content/articles/pregnancy/third-trimester-checklist/hero.jpg`   |
 
 After dropping the files in, run `pnpm content` — Velite re-hashes them,
 extracts dimensions and regenerates blur placeholders. Then check each article's

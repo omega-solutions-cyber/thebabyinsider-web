@@ -65,10 +65,11 @@ export function ArticleCard({
         <h3
           className={cn(
             'text-ink font-display mt-2.5 text-balance',
-            variant === 'large' && 'text-[1.4rem] leading-[1.15] font-extrabold tracking-[-0.02em] sm:text-[1.6rem]',
-            variant === 'default' && 'text-[1.05rem] leading-[1.25] font-bold tracking-[-0.012em]',
-            variant === 'compact' && 'text-[0.98rem] leading-[1.25] font-bold tracking-[-0.01em]',
-            variant === 'horizontal' && 'text-[0.92rem] leading-[1.3] font-bold'
+            variant === 'large' &&
+              'text-[1.4rem] font-extrabold leading-[1.15] tracking-[-0.02em] sm:text-[1.6rem]',
+            variant === 'default' && 'text-[1.05rem] font-bold leading-[1.25] tracking-[-0.012em]',
+            variant === 'compact' && 'text-[0.98rem] font-bold leading-[1.25] tracking-[-0.01em]',
+            variant === 'horizontal' && 'text-[0.92rem] font-bold leading-[1.3]'
           )}
         >
           <Link href={article.permalink} className="hover:text-accent">
@@ -94,7 +95,7 @@ export function ArticleCard({
           <p className="mt-3">
             <Link
               href={article.permalink}
-              className="text-ink-muted hover:text-accent inline-flex items-center gap-1.5 font-sans text-[0.65rem] font-bold tracking-[0.14em] uppercase"
+              className="text-ink-muted hover:text-accent inline-flex items-center gap-1.5 font-sans text-[0.65rem] font-bold uppercase tracking-[0.14em]"
               tabIndex={-1}
               aria-hidden="true"
             >

@@ -13,7 +13,7 @@ function LinkColumn({
 }) {
   return (
     <div>
-      <h2 className="text-accent-on-dark font-sans text-[0.7rem] font-bold tracking-[0.1em] uppercase">
+      <h2 className="text-accent-on-dark font-sans text-[0.7rem] font-bold uppercase tracking-[0.1em]">
         {heading}
       </h2>
       <ul className="mt-4 space-y-2.5">
@@ -59,8 +59,8 @@ export function SiteFooter() {
             enforced at build time. See /about and /advertising-disclosure. */}
         <div className="border-paper/12 border-t py-7">
           <p className="text-paper/70 text-[0.75rem]">
-            © {siteConfig.founded}–{new Date().getFullYear()} {siteConfig.name}. Information on this
-            site is for general education and is not a substitute for advice from your own
+            © {siteConfig.founded}–{new Date().getFullYear()} {siteConfig.name}. Information on
+            this site is for general education and is not a substitute for advice from your own
             healthcare provider.
           </p>
         </div>

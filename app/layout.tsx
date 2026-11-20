@@ -79,7 +79,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <JsonLd data={rootGraph()} />
         <a
           href="#main"
-          className="focus:bg-accent focus:text-paper sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:px-4 focus:py-2"
+          className="focus:bg-accent focus:text-paper sr-only focus:not-sr-only focus:absolute focus:left-2 focus:top-2 focus:z-50 focus:px-4 focus:py-2"
         >
           Skip to content
         </a>

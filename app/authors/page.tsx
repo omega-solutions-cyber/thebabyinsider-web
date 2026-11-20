@@ -42,7 +42,7 @@ function PersonCard({ person }: { person: Author }) {
 
 export default function AuthorsPage() {
   return (
-    <Container width="wide" className="pt-6 pb-4">
+    <Container width="wide" className="pb-4 pt-6">
       <Breadcrumbs trail={[{ name: 'Home', url: '/' }, { name: 'Our team' }]} />
 
       <header className="border-rule mt-5 border-b pb-7">
