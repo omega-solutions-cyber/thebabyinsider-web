@@ -4,7 +4,6 @@ import type { ReactNode } from 'react'
 import type { Article } from '@/lib/content'
 import { getArticle, getAuthor } from '@/lib/content'
 import { siteConfig } from '@/data/siteConfig'
-import { OwnershipDisclosure } from '@/components/disclosure/OwnershipDisclosure'
 import { cn } from '@/lib/cn'
 
 /* ------------------------------------------------------------------ Callout */
@@ -523,11 +522,7 @@ export function ExpertNote({
 
 /**
  * Compact funnel CTA block for repeat placement inside an article.
- *
- * Like BabyLeapPromo, it renders its own disclosure and offers no prop to
- * suppress it — a placement that sends readers to our paid product always says
- * whose product it is. This variant keeps that to a single line so the block can
- * appear more than once without the page turning into a disclosure sandwich.
+ * The article-level ownership disclosure (page foot) covers it.
  */
 export function AppDownload({ headline }: { headline?: string }) {
   const { productName, funnelUrl } = siteConfig.ownership
@@ -545,7 +540,6 @@ export function AppDownload({ headline }: { headline?: string }) {
       >
         Take the free quiz →
       </a>
-      <OwnershipDisclosure variant="bar" className="mt-4 border-b-0 border-t pb-0 pt-3" />
     </aside>
   )
 }
@@ -553,9 +547,7 @@ export function AppDownload({ headline }: { headline?: string }) {
 /* ------------------------------------------------------------ BabyLeapPromo */
 
 /**
- * The app CTA. It renders its own ownership disclosure — there is deliberately
- * no prop to turn that off, so a promotional placement cannot exist on this
- * site without the relationship being stated next to it.
+ * The app CTA. The article-level ownership disclosure (page foot) covers it.
  */
 export function BabyLeapPromo({ headline, body }: { headline?: string; body?: string }) {
   const { productName, funnelUrl } = siteConfig.ownership
@@ -584,7 +576,6 @@ export function BabyLeapPromo({ headline, body }: { headline?: string; body?: st
           </a>
         </p>
       </div>
-      <OwnershipDisclosure variant="inline" className="mt-0" />
     </aside>
   )
 }

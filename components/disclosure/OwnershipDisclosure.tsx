@@ -5,9 +5,8 @@ import { cn } from '@/lib/cn'
 /**
  * States, in plain language, that we own the product being discussed.
  *
- * Rendered automatically on any article with `ownershipDisclosure: true`, and
- * embedded inside BabyLeapPromo so a promotional block cannot appear without
- * it. The content layer fails the build if an article mentions our product and
+ * Rendered automatically at the foot of any article with `ownershipDisclosure: true`.
+ * The content layer fails the build if an article mentions our product and
  * has not set the flag, so this is enforced rather than remembered.
  */
 export function OwnershipDisclosure({
@@ -20,7 +19,7 @@ export function OwnershipDisclosure({
   const { parentName, productName } = siteConfig.ownership
 
   // Single-line treatment for commercial articles where the relationship is
-  // already stated in the body. Compact, but above anything it qualifies.
+  // already stated in the body. Rendered at the article foot.
   if (variant === 'bar') {
     return (
       <p
@@ -63,7 +62,7 @@ export function OwnershipDisclosure({
       aria-label="Ownership disclosure"
       className={cn('border-accent/35 bg-accent-tint rounded-card my-8 border p-5', className)}
     >
-      <h2 className="text-accent font-sans text-[0.7rem] font-bold tracking-[0.1em] uppercase">
+      <h2 className="text-accent font-sans text-[0.7rem] font-bold uppercase tracking-[0.1em]">
         Ownership disclosure
       </h2>
       <p className="text-ink mt-2.5 text-[0.88rem] leading-relaxed">

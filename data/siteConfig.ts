@@ -33,7 +33,7 @@ export const siteConfig = {
    */
   ownership: {
     parentName: 'Baby Insider',
-    productName: 'BabyInsider',
+    productName: 'BabyLeap',
     productUrl: 'https://www.thebabyinsider.com',
     /** Web funnel entry (same target as the babyleapapp.com homepage CTAs); every app CTA links here. */
     funnelUrl: 'https://babyleapapp.com/quiz?question=1',

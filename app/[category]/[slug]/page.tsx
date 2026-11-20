@@ -103,7 +103,7 @@ export default async function ArticlePage({ params }: { params: Params }) {
         <article>
           <header>
             <CategoryEyebrow slug={article.category} />
-            <h1 className="text-ink mt-2 font-display text-[1.9rem] leading-[1.12] font-semibold sm:text-[2.25rem]">
+            <h1 className="text-ink font-display mt-2 text-[1.9rem] font-semibold leading-[1.12] sm:text-[2.25rem]">
               {article.title}
             </h1>
             <p className="text-ink-muted mt-4 text-[1.05rem] leading-relaxed">{article.summary}</p>
@@ -137,17 +137,6 @@ export default async function ArticlePage({ params }: { params: Params }) {
             )}
           </figure>
 
-          {/*
-            Disclosure sits above the body, before any claim it applies to.
-            Roundups and reviews state the relationship in the body as well, so
-            they get the single-line bar rather than a second full block.
-          */}
-          {article.ownershipDisclosure && (
-            <OwnershipDisclosure
-              variant={article.type === 'roundup' || article.type === 'review' ? 'bar' : 'block'}
-              className="mt-6"
-            />
-          )}
           {article.affiliate && !article.ownershipDisclosure && (
             <AffiliateDisclosure note={article.disclosureNote} />
           )}
@@ -170,6 +159,11 @@ export default async function ArticlePage({ params }: { params: Params }) {
               }}
             />
           </div>
+
+          {/* The only ownership disclosure on the page; CTA blocks carry none. */}
+          {article.ownershipDisclosure && (
+            <OwnershipDisclosure variant="bar" className="mt-10 border-b-0 border-t pb-0 pt-3" />
+          )}
 
           <SourcesList sources={article.sources} />
         </article>
