@@ -1,5 +1,6 @@
 import Script from 'next/script'
 import { siteConfig } from '@/data/siteConfig'
+import { experiment } from '@/data/experiment'
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID
 const ADS_ID = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID
@@ -19,6 +20,11 @@ const funnelHost = new URL(siteConfig.ownership.funnelUrl).hostname
  *
  * shortcut: no consent gating (CookiePreferences is not wired to anything); add
  * Consent Mode v2 defaults before running traffic from the EU/UK.
+ *
+ * A/B arm: if proxy.ts has put the visitor in an experiment, the arm is set as
+ * an event param and user property before config, so page_view and every later
+ * event carry it, and it is appended to funnel links as ab_variant so the
+ * funnel can attach it to checkout and purchase.
  */
 export function GoogleTag() {
   const primaryId = GA_ID ?? ADS_ID
@@ -38,6 +44,12 @@ window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('set', 'linker', { domains: [${JSON.stringify(funnelHost)}] });
+var abMatch = document.cookie.match(/(?:^|; )${experiment.cookie}=([a-z_]+)/);
+var ab = abMatch ? ${JSON.stringify(experiment.name)} + ':' + abMatch[1] : null;
+if (ab) {
+  gtag('set', { ab_variant: ab });
+  gtag('set', 'user_properties', { ab_variant: ab });
+}
 ${ids.map((id) => `gtag('config', ${JSON.stringify(id)});`).join('\n')}
 
 var funnelHost = ${JSON.stringify(funnelHost)};
@@ -54,6 +66,11 @@ document.addEventListener('click', function (e) {
     funnel: isFunnel,
     cta_location: loc,
   });
+  if (isFunnel && ab) {
+    var u = new URL(a.href);
+    u.searchParams.set('ab_variant', ab);
+    a.href = u.toString();
+  }
   if (isFunnel) gtag('event', 'funnel_click', { link_url: a.href, cta_location: loc });
 }, true);
 `}
